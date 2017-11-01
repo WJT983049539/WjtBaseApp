@@ -6,6 +6,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -97,4 +100,41 @@ public class GsonUtil {
         }
         return map;
     }
+
+    /**
+     * 通过key取值
+     * @param obj
+     * @param key
+     * @return
+     * @throws JSONException
+     */
+    public static Object getValFromJSONObject(JSONObject obj, String key) throws JSONException {
+        if(obj==null){
+            return null;
+        }
+        return obj.has(key)?obj.get(key):null;
+    }
+
+    /**
+     * 通过key取字符串
+     * @param obj
+     * @param key
+     * @return
+     */
+    public static String getStringValFromJSONObject(JSONObject obj,String key){
+        Object o;
+        try {
+            o = getValFromJSONObject(obj,key);
+            if(o==null){
+                return null;
+            }else{
+                return o.toString();
+            }
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
