@@ -61,8 +61,12 @@ public abstract class BaseFragment extends Fragment {
         return mRootView;
     }
 
-
-
+    /**
+     * @return frament的布局view
+     */
+    public View getFragmentView(){
+        return mRootView;
+    }
     /**
      * 初始化数据
      * @author 漆可
