@@ -22,12 +22,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'org.xutils:xutils:3.3.42'//先使用这个下载完了在换别的
+    compile 'org.xutils:xutils:3.3.42'
+    //先使用这个下载完了在换别的
     compile 'com.google.code.gson:gson:2.8.0'
     testCompile 'junit:junit:4.12'
+    compile files('src/libs/ant-1.9.0.jar')
 }
