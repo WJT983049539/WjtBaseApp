@@ -26,6 +26,8 @@ public class BaseAndroid {
         }
         return baseConfig;
     }
+
+
     /**
      * 版本更新
      *

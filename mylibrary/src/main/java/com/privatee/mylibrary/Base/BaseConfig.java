@@ -9,9 +9,6 @@ import com.privatee.mylibrary.R;
 
 public class BaseConfig {
 
-
-
-
     /**
      * 屏幕是否常亮
      * 默认不常亮
@@ -80,5 +77,9 @@ public class BaseConfig {
      * APP图标
      */
     private int appLogo = R.drawable.ic_launcher;
+
+
+
+
 
 }
