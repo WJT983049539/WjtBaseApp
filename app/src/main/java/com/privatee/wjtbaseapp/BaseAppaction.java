@@ -18,8 +18,6 @@ public class BaseAppaction extends Application{
     }
 
 
-
-
     //配置数据库
     private void setupDatabase() {
         //创建数据库shop.db"
