@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.privatee.mylibrary.R;
-import com.privatee.mylibrary.utils.ActivityController;
+import com.privatee.mylibrary.utils.ActivityStack;
 import com.privatee.mylibrary.utils.SharedPreferenceTools;
 import com.privatee.mylibrary.utils.TaoTools;
 
@@ -47,7 +47,8 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
         inintView();
         inintData();
         TaoTools.i("在"+setNowActivityName()+"oncreate");
-        ActivityController.addActivity(this);
+//        ActivityController.addActivity(this);
+        ActivityStack.getInstance().popActivity(this);
     }
 
     @Override
@@ -65,6 +66,7 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ActivityStack.getInstance().popActivity(this);
         TaoTools.i("在"+setNowActivityName()+"onDestroy");
     }
 

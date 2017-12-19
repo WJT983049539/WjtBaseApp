@@ -15,10 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.privatee.mylibrary.R;
-import com.privatee.mylibrary.utils.ActivityController;
+import com.privatee.mylibrary.utils.ActivityStack;
 import com.privatee.mylibrary.utils.SharedPreferenceTools;
 import com.privatee.mylibrary.utils.TaoTools;
 
+import static com.privatee.mylibrary.Base.BaseAndroid.baseConfig;
 import static com.privatee.mylibrary.R.id.lay_bg;
 
 /**
@@ -28,26 +29,33 @@ import static com.privatee.mylibrary.R.id.lay_bg;
 
 public abstract class BaseActivity extends Activity implements View.OnClickListener{
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏任务栏
+        if(baseConfig.isTitle()){
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏任务栏
+        }
+
+
+
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Window window = getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         //隐藏底部键盘，一直不会弹出
         layoutParams.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
-        //屏幕常亮
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        if(baseConfig.isKeepScreen()){
+            //屏幕常亮
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
         setNowActivityName();
         setContentView(setLayout());
         inintView();
         inintData();
         TaoTools.i("在"+setNowActivityName()+"oncreate");
-        ActivityController.addActivity(this);
+        ActivityStack.getInstance().pushActivity(this);//将界面加入堆栈
+//        ActivityController.addActivity(this);
     }
 
     @Override
@@ -65,6 +73,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        ActivityStack.getInstance().popActivity(this);
         TaoTools.i("在"+setNowActivityName()+"onDestroy");
     }
 

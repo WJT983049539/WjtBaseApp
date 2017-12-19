@@ -8,6 +8,39 @@ import com.privatee.mylibrary.R;
  */
 
 public class BaseConfig {
+
+
+
+
+    /**
+     * 屏幕是否常亮
+     * 默认不常亮
+     */
+
+    private static boolean isKeepScreen=false;
+
+
+    public static boolean isKeepScreen() {
+        return isKeepScreen;
+    }
+
+    public static void setIsKeepScreen(boolean isKeepScreen) {
+        BaseConfig.isKeepScreen = isKeepScreen;
+    }
+
+    /**
+     * 是否隐藏标题
+     */
+    private static  boolean isTitle=true;
+
+    public static boolean isTitle() {
+        return isTitle;
+    }
+
+    public static void setIsTitle(boolean isTitle) {
+        BaseConfig.isTitle = isTitle;
+    }
+
     /**
      * app主颜色
      */

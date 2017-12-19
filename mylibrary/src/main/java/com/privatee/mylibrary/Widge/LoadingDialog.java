@@ -39,7 +39,6 @@ public class LoadingDialog extends Dialog{
         params.width = WindowManager.LayoutParams.WRAP_CONTENT;
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(params);
-
     }
 
     @Override
