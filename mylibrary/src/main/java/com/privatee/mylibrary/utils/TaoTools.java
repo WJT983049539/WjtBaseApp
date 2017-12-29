@@ -3,8 +3,11 @@ package com.privatee.mylibrary.utils;
 import android.util.Log;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * 类的作用：
@@ -23,10 +26,24 @@ public class TaoTools {
     public static void i(String msg){
         Log.i("SeeLog",msg);
     }
+
+
+
+
+    private static final DateFormat DEFAULT_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
     /**
-     * Log v  显示
-     * @param msg 要显示的信息
+     * 获取生肖
+     *
+     * @param date Date类型时间
+     * @return 生肖
      */
+    public static String getChineseZodiac(final Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return CHINESE_ZODIAC[cal.get(Calendar.YEAR) % 12];
+    }
+
+
     public static void v (String msg){
         Log.v("SeeLog",msg);
     }
@@ -89,7 +106,25 @@ public class TaoTools {
         int day = cal.get(Calendar.DAY_OF_MONTH);
         return getZodiac(month, day);
     }
-
+    /**
+     * 将时间字符串转为Date类型
+     * <p>time格式为format</p>
+     *
+     * @param time   时间字符串
+     * @param format 时间格式
+     * @return Date类型
+     */
+    public static Date string2Date(final String time, final DateFormat format) {
+        try {
+            return format.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static Date string2Date(final String time) {
+        return string2Date(time, DEFAULT_FORMAT);
+    }
 
 
 
@@ -119,6 +154,18 @@ public class TaoTools {
     public static int getWeekOfYear(final long millis) {
         return getWeekOfYear(millis2Date(millis));
     }
+    /**
+     * 获取年份中的第几周
+     * <p>注意：国外周日才是新的一周的开始</p>
+     *
+     * @param date Date类型时间
+     * @return 1...54
+     */
+    public static int getWeekOfYear(final Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.WEEK_OF_YEAR);
+    }
 
     private static final String[] CHINESE_ZODIAC = {"猴", "鸡", "狗", "猪", "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊"};
 
@@ -145,17 +192,8 @@ public class TaoTools {
         return getChineseZodiac(string2Date(time, format));
     }
 
-    /**
-     * 获取生肖
-     *
-     * @param date Date类型时间
-     * @return 生肖
-     */
-    public static String getChineseZodiac(final Date date) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        return CHINESE_ZODIAC[cal.get(Calendar.YEAR) % 12];
-    }
+
+
 
     /**
      * 获取生肖
@@ -176,5 +214,13 @@ public class TaoTools {
     public static String getChineseZodiac(final int year) {
         return CHINESE_ZODIAC[year % 12];
     }
-
+    /**
+     * 将时间戳转为Date类型
+     *
+     * @param millis 毫秒时间戳
+     * @return Date类型时间
+     */
+    public static Date millis2Date(final long millis) {
+        return new Date(millis);
+    }
 }
