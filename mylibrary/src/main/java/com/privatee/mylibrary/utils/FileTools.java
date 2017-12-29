@@ -43,30 +43,6 @@ public class FileTools {
     }
 
 
-    /**
-     * 删除文件（若为目录，则递归删除子目录和文件）
-     *
-     * @param file
-     * @param delThisPath true代表删除参数指定file，false代表保留参数指定file
-     */
-    public static void delFile(File file, boolean delThisPath) {
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isDirectory()) {
-            File[] subFiles = file.listFiles();
-            if (subFiles != null) {
-                int num = subFiles.length;
-                // 删除子目录和文件
-                for (int i = 0; i < num; i++) {
-                    delFile(subFiles[i], true);
-                }
-            }
-        }
-        if (delThisPath) {
-            file.delete();
-        }
-    }
 
 
     /**
@@ -344,7 +320,9 @@ public class FileTools {
     public static boolean isDir(final String dirPath) {
         return isDir(getFileByPath(dirPath));
     }
-
+    private static File getFileByPath(final String filePath) {
+        return isSpace(filePath) ? null : new File(filePath);
+    }
     /**
      * 判断是否是目录
      *
@@ -354,134 +332,13 @@ public class FileTools {
     public static boolean isDir(final File file) {
         return file != null && file.exists() && file.isDirectory();
     }
-
-
-
-
-    /**
-     * 复制或移动文件
-     *
-     * @param srcFile  源文件
-     * @param destFile 目标文件
-     * @param listener 是否覆盖监听器
-     * @param isMove   是否移动
-     * @return {@code true}: 复制或移动成功<br>{@code false}: 复制或移动失败
-     */
-    private static boolean copyOrMoveFile(final File srcFile, final File destFile, final OnReplaceListener listener, final boolean isMove) {
-        if (srcFile == null || destFile == null) return false;
-        // 如果源文件和目标文件相同则返回false
-        if (srcFile.equals(destFile)) return false;
-        // 源文件不存在或者不是文件则返回false
-        if (!srcFile.exists() || !srcFile.isFile()) return false;
-        if (destFile.exists()) {// 目标文件存在
-            if (listener.onReplace()) {// 需要覆盖则删除旧文件
-                if (!destFile.delete()) {// 删除文件失败的话返回false
-                    return false;
-                }
-            } else {// 不需要覆盖直接返回即可true
-                return true;
+    private static boolean isSpace(final String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
             }
         }
-        // 目标目录不存在返回false
-        if (!createOrExistsDir(destFile.getParentFile())) return false;
-        try {
-            return FileIOUtils.writeFileFromIS(destFile, new FileInputStream(srcFile), false)
-                    && !(isMove && !deleteFile(srcFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return true;
     }
-
-
-
-    /**
-     * 移动目录
-     *
-     * @param srcDirPath  源目录路径
-     * @param destDirPath 目标目录路径
-     * @param listener    是否覆盖监听器
-     * @return {@code true}: 移动成功<br>{@code false}: 移动失败
-     */
-    public static boolean moveDir(final String srcDirPath, final String destDirPath, final OnReplaceListener listener) {
-        return moveDir(getFileByPath(srcDirPath), getFileByPath(destDirPath), listener);
-    }
-
-    /**
-     * 移动文件
-     *
-     * @param srcFilePath  源文件路径
-     * @param destFilePath 目标文件路径
-     * @param listener     是否覆盖监听器
-     * @return {@code true}: 移动成功<br>{@code false}: 移动失败
-     */
-    public static boolean moveFile(final String srcFilePath, final String destFilePath, final OnReplaceListener listener) {
-        return moveFile(getFileByPath(srcFilePath), getFileByPath(destFilePath), listener);
-    }
-
-
-
-
-
-    /**
-     * 删除目录
-     *
-     * @param dirPath 目录路径
-     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
-     */
-    public static boolean deleteDir(final String dirPath) {
-        return deleteDir(getFileByPath(dirPath));
-    }
-
-    /**
-     * 删除目录
-     *
-     * @param dir 目录
-     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
-     */
-    public static boolean deleteDir(final File dir) {
-        if (dir == null) return false;
-        // 目录不存在返回true
-        if (!dir.exists()) return true;
-        // 不是目录返回false
-        if (!dir.isDirectory()) return false;
-        // 现在文件存在且是文件夹
-        File[] files = dir.listFiles();
-        if (files != null && files.length != 0) {
-            for (File file : files) {
-                if (file.isFile()) {
-                    if (!file.delete()) return false;
-                } else if (file.isDirectory()) {
-                    if (!deleteDir(file)) return false;
-                }
-            }
-        }
-        return dir.delete();
-    }
-
-    /**
-     * 删除目录下所有东西
-     *
-     * @param dirPath 目录路径
-     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
-     */
-    public static boolean deleteAllInDir(final String dirPath) {
-        return deleteAllInDir(getFileByPath(dirPath));
-    }
-
-    /**
-     * 删除目录下所有东西
-     *
-     * @param dir 目录
-     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
-     */
-    public static boolean deleteAllInDir(final File dir) {
-        return deleteFilesInDirWithFilter(dir, new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return true;
-            }
-        });
-    }
-
 }
