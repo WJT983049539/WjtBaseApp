@@ -24,7 +24,7 @@ public class TaoTools {
      * @param msg 要显示的信息
      */
     public static void i(String msg){
-        Log.i("SeeLog",msg);
+        Log.i("seeLog",msg);
     }
 
 
