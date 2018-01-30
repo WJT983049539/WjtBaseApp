@@ -1,20 +1,20 @@
 package com.privatee.mylibrary.Base;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 类的作用： 基础Fragment
+ * 类的作用： 兼容基础Fragment v4
  * Created by WJT on  2017/10/28 09:31.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class CompatibleBaseFragment extends Fragment{
 
     /**
      * 贴附的activity
