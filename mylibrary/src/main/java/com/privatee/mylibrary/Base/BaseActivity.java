@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.privatee.mylibrary.R;
 import com.privatee.mylibrary.utils.ActivityController;
+import com.privatee.mylibrary.utils.ActivityStack;
 import com.privatee.mylibrary.utils.SharedPreferenceTools;
 import com.privatee.mylibrary.utils.TaoTools;
 
@@ -54,8 +55,8 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         inintView();
         inintData();
         TaoTools.i("在"+setNowActivityName()+"oncreate");
-//        ActivityStack.getInstance().pushActivity(this);//将界面加入堆栈
-        ActivityController.addActivity(this);
+        ActivityStack.addActivity(this);//将界面加入堆栈
+//        ActivityController.addActivity(this);
     }
 
     @Override
@@ -72,10 +73,11 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-//        ActivityStack.getInstance().popActivity(this);
+
+        ActivityStack.finishActivity(this);
         ActivityController.RemoveActivity(this);
         TaoTools.i("在"+setNowActivityName()+"onDestroy");
+        super.onDestroy();
     }
 
     /**
