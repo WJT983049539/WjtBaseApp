@@ -48,7 +48,6 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
         inintData();
         TaoTools.i("在"+setNowActivityName()+"oncreate");
         ActivityController.addActivity(this);
-//        ActivityStack.getInstance().popActivity(this);
     }
 
     @Override
@@ -67,7 +66,6 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
     protected void onDestroy() {
         super.onDestroy();
         ActivityController.RemoveActivity(this);
-//        ActivityStack.getInstance().popActivity(this);
         TaoTools.i("在"+setNowActivityName()+"onDestroy");
     }
 
