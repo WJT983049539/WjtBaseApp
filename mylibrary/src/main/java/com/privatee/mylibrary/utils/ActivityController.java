@@ -13,7 +13,13 @@ import java.util.List;
 public class ActivityController {
 
     private static List<Activity> activities=new ArrayList<Activity>();
+    /**
+     * 获取栈list
+     */
 
+    public static List<Activity> getActivities(){
+        return activities;
+    }
     /**
      * 加入Activity
      */
