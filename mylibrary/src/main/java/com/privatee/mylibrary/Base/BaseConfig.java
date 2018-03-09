@@ -41,7 +41,7 @@ public class BaseConfig {
     /**
      * app主颜色
      */
-    private int appColor = R.color.base;
+    private int appColor = 0x00BB29;
 
     public int getAppColor() {
         return appColor;
@@ -78,8 +78,16 @@ public class BaseConfig {
      */
     private int appLogo = R.drawable.ic_launcher;
 
+    /**
+     * 主Activity,主界面
+     */
+    public static Class mainclass=null;
 
-
-
+    public static void setMainclass(Class mainclasss){
+        mainclass=mainclasss;
+    }
+    public static Class getMainclass(){
+        return mainclass;
+    }
 
 }

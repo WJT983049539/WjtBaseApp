@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -29,15 +31,13 @@ import static com.privatee.mylibrary.R.id.lay_bg;
 
 public abstract class BaseActivity extends Activity implements View.OnClickListener{
 
+    private long clickTime=0;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(baseConfig.isTitle()){
-            this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏任务栏
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏导航栏
         }
-
-
-
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Window window = getWindow();
@@ -120,8 +120,9 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
      * 弹出Toast
      */
     public void showToast(String string) {
-        Toast.makeText(BaseActivity.this, string, Toast.LENGTH_SHORT).show();
+       Toast.makeText(BaseActivity.this, string, Toast.LENGTH_SHORT).show();
     }
+
 
     /**
      * 检查字符串是否是空对象或空字符串
@@ -268,4 +269,29 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected <T extends View> T fvbi(int resId){
         return (T) findViewById(resId);
     }
+
+    /**
+     * 点击返回键，判断是否是最后一个activity，如果是就提示用户是否退出
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //剩最后一个了
+            if(ActivityController.getActivities().size()==1){
+            if (SystemClock.uptimeMillis() - clickTime <= 1500) {
+                //如果两次的时间差＜1s，就不执行操作
+            } else {
+                //当前系统时间的毫秒值
+                clickTime = SystemClock.uptimeMillis();
+                Toast.makeText(this, "再次点击退出", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

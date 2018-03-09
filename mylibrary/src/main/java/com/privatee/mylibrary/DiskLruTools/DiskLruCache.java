@@ -188,14 +188,15 @@ public final class DiskLruCache implements Closeable {
     this.maxSize = maxSize;
   }
 
+
   /**
-   * Opens the cache in {@code directory}, creating a cache if none exists
-   * there.
+   *打开{@code目录}中的缓存，如果不存在，则创建一个缓存
+   * 那里。
    *
-   * @param directory a writable directory
-   * @param valueCount the number of values per cache entry. Must be positive.
-   * @param maxSize the maximum number of bytes this cache should use to store
-   * @throws IOException if reading or writing the cache directory fails
+   * @param目录是一个可写目录
+   * @param  valueCount 每个缓存条目的值数量。 必须是积极的。
+   * @param maxSize 此缓存应用于存储的最大字节数
+   *如果读取或写入缓存目录失败，则抛出IOException
    */
   public static DiskLruCache open(File directory, int appVersion, int valueCount, long maxSize)
       throws IOException {

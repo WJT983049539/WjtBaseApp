@@ -21,6 +21,9 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -33,4 +36,10 @@ dependencies {
     compile files('src/libs/ant-1.9.0.jar')
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.github.paolorotolo:appintro:3.4.0'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.lzy.net:okrx2:2.0.2'
+    compile 'com.lzy.net:okserver:2.0.5'
+    compile files('src/libs/tbs_sdk_thirdapp_v3.5.0.1004_43500_sharewithdownload_withoutGame_obfs_20170801_113025.jar')
 }

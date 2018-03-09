@@ -1,5 +1,4 @@
 package com.privatee.mylibrary.Base;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -8,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.privatee.mylibrary.utils.TaoTools;
 
 /**
  * 类的作用： 基础Fragment
@@ -36,6 +37,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context)
     {
+        TaoTools.i("在"+setNowfragmentName()+"的onAttach方法中");
         mActivity = getActivity();
         super.onAttach(context);
 
@@ -46,12 +48,13 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
+        TaoTools.i("在"+setNowfragmentName()+"的onCreateView方法中");
         mRootView = inflater.inflate(setLayoutResouceId(), container, false);
 
         getDataforOther(getArguments());
 
         initView();
-
+        inintData();
         mIsPrepare = true;
 
         onLazyLoad();
@@ -78,15 +81,7 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    /**
-     * 初始化View
-     * @author
-     * @date 2016-5-26 下午3:58:49
-     */
-    protected void initView()
-    {
 
-    }
 
     /**
      * 设置监听事件
@@ -135,7 +130,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @SuppressWarnings("unchecked")
-    protected <T extends View> T fVB(int id)
+    protected <T extends View> T fvbi(int id)
     {
         if (mRootView == null)
         {
@@ -152,4 +147,71 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     protected abstract int setLayoutResouceId();
+    /**
+     * 标识本fragment
+     * @return
+     */
+    public abstract String setNowfragmentName();
+
+    /**
+     * 初始化View
+     * @author
+     * @date 2016-5-26 下午3:58:49
+     */
+    public abstract void initView();
+    /**
+     * 初始化数据
+     * @author
+     * @date 2016-5-26 下午3:58:49
+     */
+    public abstract void inintData();
+
+
+    public BaseFragment() {
+        super();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setNowfragmentName();
+        TaoTools.i("在"+setNowfragmentName()+"的onCreate方法");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        TaoTools.i("在"+setNowfragmentName()+"的onStart方法");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TaoTools.i("在"+setNowfragmentName()+"的onResume方法");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        TaoTools.i("在"+setNowfragmentName()+"的onPause方法");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        TaoTools.i("在"+setNowfragmentName()+"的onStop方法");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        TaoTools.i("在"+setNowfragmentName()+"的onDestroy方法");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        TaoTools.i("在"+setNowfragmentName()+"的onDetach方法");
+    }
+
 }

@@ -51,7 +51,7 @@ public abstract class CompatibleBaseFragment extends Fragment{
         getDataforOther(getArguments());
 
         initView();
-
+        inintData();
         mIsPrepare = true;
 
         onLazyLoad();
@@ -83,10 +83,12 @@ public abstract class CompatibleBaseFragment extends Fragment{
      * @author
      * @date 2016-5-26 下午3:58:49
      */
-    protected void initView()
-    {
+    public abstract void initView();
 
-    }
+    /**
+     * 初始化数据
+     */
+    public abstract void inintData();
 
     /**
      * 设置监听事件
@@ -135,7 +137,7 @@ public abstract class CompatibleBaseFragment extends Fragment{
     }
 
     @SuppressWarnings("unchecked")
-    protected <T extends View> T fVB(int id)
+    protected <T extends View> T fvbi(int id)
     {
         if (mRootView == null)
         {
