@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,7 +26,7 @@ import static com.privatee.mylibrary.R.id.lay_bg;
  * Created by WJT on  2017/11/1 17:23.
  */
 
-public abstract class CompatibilityBaseActivity extends FragmentActivity implements View.OnClickListener{
+public abstract class CompatibilityBaseActivity extends AppCompatActivity implements View.OnClickListener{
 
 
 
