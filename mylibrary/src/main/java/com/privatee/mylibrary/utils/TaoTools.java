@@ -25,6 +25,7 @@ public class TaoTools {
      */
     public static void i(String msg){
         Log.i("seeLog",msg);
+//        XLog.i(msg);
     }
 
 
@@ -46,27 +47,31 @@ public class TaoTools {
 
     public static void v (String msg){
         Log.v("SeeLog",msg);
+        //XLog.v(msg);
     }
     /**
      * Log w  显示
      * @param msg 要显示的信息
      */
     public static void w(String msg){
-        Log.w("SeeLog",msg);
+       Log.w("SeeLog",msg);
+        // XLog.w(msg);
     }
     /**
      * Log e  显示
      * @param msg 要显示的信息
      */
     public static void e(String msg){
-        Log.e("SeeLog",msg);
+       Log.e("SeeLog",msg);
+        //  XLog.e(msg);
     }
     /**
      * Log d  显示
      * @param msg 要显示的信息
      */
     public static void d(String msg){
-        Log.d("SeeLog",msg);
+      Log.d("SeeLog",msg);
+        //   XLog.d(msg);
     }
 
 
