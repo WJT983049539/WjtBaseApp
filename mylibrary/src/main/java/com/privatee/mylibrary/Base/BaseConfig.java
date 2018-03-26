@@ -14,34 +14,34 @@ public class BaseConfig {
      * 默认不常亮
      */
 
-    private static boolean isKeepScreen=false;
+    private  boolean isKeepScreen=false;
 
 
-    public static boolean isKeepScreen() {
+    public  boolean isKeepScreen() {
         return isKeepScreen;
     }
 
-    public static void setIsKeepScreen(boolean isKeepScreen) {
-        BaseConfig.isKeepScreen = isKeepScreen;
+    public  void setIsKeepScreen(boolean sisKeepScreen) {
+        isKeepScreen = sisKeepScreen;
     }
 
     /**
      * 是否隐藏标题
      */
-    private static  boolean isTitle=true;
+    private   boolean isTitle=false;
 
-    public static boolean isTitle() {
+    public  boolean isTitle() {
         return isTitle;
     }
 
-    public static void setIsTitle(boolean isTitle) {
-        BaseConfig.isTitle = isTitle;
+    public  void setIsTitle(boolean sisTitle) {
+        isTitle = sisTitle;
     }
 
     /**
      * app主颜色
      */
-    private int appColor = 0x00BB29;
+    private int appColor = R.color.blue;
 
     public int getAppColor() {
         return appColor;

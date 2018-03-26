@@ -168,7 +168,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
      * 设置标题栏信息
      */
     public void setTitleText(String string) {
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(lay_bg);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.lay_bg);
         relativeLayout.setBackgroundResource(BaseAndroid.getBaseConfig().getAppColor());
         LinearLayout backTv = (LinearLayout) findViewById(R.id.ly_base_back);
         backTv.setOnClickListener(new View.OnClickListener() {

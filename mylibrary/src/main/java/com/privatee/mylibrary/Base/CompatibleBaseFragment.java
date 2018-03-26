@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.privatee.mylibrary.utils.TaoTools;
+
 /**
  * 类的作用： 兼容基础Fragment v4
  * Created by WJT on  2017/10/28 09:31.
@@ -36,16 +38,25 @@ public abstract class CompatibleBaseFragment extends Fragment{
     @Override
     public void onAttach(Context context)
     {
+        TaoTools.i("在"+setNowfragmentName()+"的onAttach方法中");
         mActivity = getActivity();
         super.onAttach(context);
 
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setNowfragmentName();
+        TaoTools.i("在"+setNowfragmentName()+"的onCreate方法");
+
+    }
+    @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
+        TaoTools.i("在"+setNowfragmentName()+"的onCreateView方法中");
         mRootView = inflater.inflate(setLayoutResouceId(), container, false);
 
         getDataforOther(getArguments());
@@ -67,6 +78,11 @@ public abstract class CompatibleBaseFragment extends Fragment{
     public View getFragmentView(){
         return mRootView;
     }
+    /**
+     * 标识本fragment
+     * @return
+     */
+    public abstract String setNowfragmentName();
     /**
      * 初始化数据
      * @author 漆可
