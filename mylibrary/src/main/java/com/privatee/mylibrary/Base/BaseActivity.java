@@ -31,6 +31,9 @@ import static com.privatee.mylibrary.R.id.lay_bg;
 
 public abstract class BaseActivity extends Activity implements View.OnClickListener{
 
+    private FragmentBackListener backListener;
+    private boolean isInterception = false;
+
     private long clickTime=0;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -279,6 +282,14 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (isInterception()) {
+                if (backListener != null) {
+                    backListener.onbackForward();
+                    return false;
+                }
+            }
+
             //剩最后一个了
             if(ActivityController.getActivities().size()==1){
             if (SystemClock.uptimeMillis() - clickTime <= 1500) {
@@ -293,5 +304,24 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public FragmentBackListener getBackListener() {
+        return backListener;
+    }
+
+    public void setBackListener(FragmentBackListener backListener) {
+        this.backListener = backListener;
+    }
+
+    public boolean isInterception() {
+        return isInterception;
+    }
+
+    public void setInterception(boolean isInterception) {
+        this.isInterception = isInterception;
+    }
+
+
+
 
 }

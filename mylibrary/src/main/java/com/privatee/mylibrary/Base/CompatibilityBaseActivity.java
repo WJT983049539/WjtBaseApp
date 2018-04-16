@@ -3,8 +3,10 @@ package com.privatee.mylibrary.Base;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -28,7 +30,9 @@ import static com.privatee.mylibrary.R.id.lay_bg;
 
 public abstract class CompatibilityBaseActivity extends AppCompatActivity implements View.OnClickListener{
 
-
+    private FragmentBackListener backListener;
+    private boolean isInterception = false;
+    private long clickTime=0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -261,4 +265,52 @@ public abstract class CompatibilityBaseActivity extends AppCompatActivity implem
     protected <T extends View> T fvbi(int resId){
         return (T) findViewById(resId);
     }
+    /**
+     * 点击返回键，判断是否是最后一个activity，如果是就提示用户是否退出
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (isInterception()) {
+                if (backListener != null) {
+                    backListener.onbackForward();
+                    return false;
+                }
+            }
+
+            //剩最后一个了
+            if(ActivityController.getActivities().size()==1){
+                if (SystemClock.uptimeMillis() - clickTime <= 1500) {
+                    //如果两次的时间差＜1s，就不执行操作
+                } else {
+                    //当前系统时间的毫秒值
+                    clickTime = SystemClock.uptimeMillis();
+                    Toast.makeText(this, "再次点击退出", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public FragmentBackListener getBackListener() {
+        return backListener;
+    }
+
+    public void setBackListener(FragmentBackListener backListener) {
+        this.backListener = backListener;
+    }
+
+    public boolean isInterception() {
+        return isInterception;
+    }
+
+    public void setInterception(boolean isInterception) {
+        this.isInterception = isInterception;
+    }
+
 }

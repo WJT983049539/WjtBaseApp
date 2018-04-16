@@ -57,7 +57,6 @@ public class BaseAndroid {
         return baseConfig;
     }
 
-
     /**
      * 版本更新
      *
@@ -76,7 +75,6 @@ public class BaseAndroid {
             if (isForced) {
                 type = 2;
             }
-
             //检测是否已下载
             String downLoadPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/downloads/";
             File dir = new File(downLoadPath);
@@ -97,7 +95,5 @@ public class BaseAndroid {
                 UpdateManager.getInstance().showDialog(context);
             }
         }
-
     }
-
 }
