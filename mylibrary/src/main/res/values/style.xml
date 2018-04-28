@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Theme.Swipe.Back" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
     <style name="LoadingDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -11,6 +17,7 @@
         <item name="android:windowDisablePreview">false</item>
         <item name="android:windowFrame">@null</item>
     </style>
+
     <!--普通dialog-->
     <style name="CustomProgressDialog" parent="@style/CustomDialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -187,4 +194,5 @@
         <item name="android:windowHideAnimation">@anim/dialog_exit</item>
         <!-- 指定消失的动画xml  -->
     </style>
+
 </resources>

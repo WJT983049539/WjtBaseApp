@@ -438,6 +438,10 @@ public class NumberProgressBar extends View {
         }
     }
 
+    /**
+     * 这里放的百分比数，整数 123
+     * @param progress
+     */
     public void setProgress(int progress) {
         if (progress <= getMax() && progress >= 0) {
             this.mCurrentProgress = progress;

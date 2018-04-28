@@ -1,5 +1,7 @@
 package com.privatee.mylibrary.utils;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,18 +15,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v7.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Toast;
 
 import com.privatee.mylibrary.Base.BaseAndroid;
-import com.privatee.mylibrary.Widge.BaseDialog;
 
 import org.xutils.common.Callback;
 import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
 import java.io.File;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
@@ -43,10 +44,13 @@ public class UpdateManager {
         private boolean isDownload = false;//是否下载
         private NotificationManager mNotifyManager;
         private NotificationCompat.Builder mBuilder;
-        private BaseDialog dialog;
-        private ProgressDialog progressDialog;
+        //private BaseDialog dialog;
+        private CustomProgressDialog progressDialog;
 
         public static UpdateManager updateManager;
+    public static final int BUTTON_YES = Dialog.BUTTON_NEGATIVE;
+    public static final int BUTTON_NEUTRAL = Dialog.BUTTON_NEUTRAL;
+    public static final int BUTTON_NO = Dialog.BUTTON_POSITIVE;
 
         public static UpdateManager getInstance() {
             if (updateManager == null) {
@@ -76,7 +80,42 @@ public class UpdateManager {
             if (type == 2) {
                 cancelable = false;
             }
-            dialog = new BaseDialog.Builder(context).setTitle(title).setMessage(updateMessage).setCancelable(cancelable)
+
+
+            DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener(){
+                @Override
+                public void onClick(DialogInterface dialog,int which) {
+                    switch (which) {
+                        case BUTTON_YES:
+                            if (type == 1 | isDownload) {
+                                installApk(context, new File(downLoadPath, fileName));
+                            } else {
+                                if (url != null && !TextUtils.isEmpty(url)) {
+                                    if (type == 2) {
+                                        createProgress(context);
+                                    } else {
+                                        createNotification(context);
+                                    }
+                                    downloadFile(context);
+                                } else {
+                                    Toast.makeText(context, "下载地址错误", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            break;
+                        case BUTTON_NO:
+                            if (type == 2) {
+                                System.exit(0);
+                            }
+                            break;
+                    }
+                    dialog.dismiss();
+                }
+            };
+            showAlertDialog(context, "提示信息", title,
+                    android.R.drawable.ic_dialog_info,
+                    new String[]{left,"取消"}, listener).setCancelable(cancelable);
+
+          /*  dialog = new BaseDialog.Builder(context).setTitle(title).setMessage(updateMessage).setCancelable(cancelable)
                     .setLeftClick(left, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -107,8 +146,32 @@ public class UpdateManager {
                         }
                     })
                     .create();
-            dialog.show();
+            dialog.show();*/
         }
+
+
+    public static AlertDialog showAlertDialog(Context context, String title, String msg, int icon,
+                                              String[] btnNames, final DialogInterface.OnClickListener listener){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context,3);
+        dialog.setTitle(title).setMessage(msg);
+   //  dialog.setCancelable(false);//对话框不能被 返回键 取消
+        if(icon != 0) dialog.setIcon(icon);
+
+        if (btnNames!=null && listener!=null){
+            if(btnNames.length==1){
+                dialog.setPositiveButton(btnNames[0],listener);
+            }else if(btnNames.length==2){
+                dialog.setNegativeButton(btnNames[0],listener);
+                dialog.setPositiveButton(btnNames[1],listener);
+            }else if(btnNames.length==3){
+                dialog.setNegativeButton(btnNames[0],listener);
+                dialog.setNeutralButton(btnNames[1],listener);
+                dialog.setPositiveButton(btnNames[2],listener);
+            }
+        }
+
+        return dialog.show();
+    }
 
 
         /**
@@ -185,7 +248,7 @@ public class UpdateManager {
          * 强制更新时显示在屏幕的进度条
          */
         private void createProgress(final Context context) {
-            progressDialog = new ProgressDialog(context);
+            progressDialog = new CustomProgressDialog(context);
             progressDialog.setMax(100);
             progressDialog.setCancelable(false);
             progressDialog.setMessage("正在下载...");

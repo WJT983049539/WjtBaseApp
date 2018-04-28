@@ -48,6 +48,7 @@ public class BaseAndroid {
                 androidPrinter,                                        // 添加任意多的打印器。如果没有添加任何打印器，会默认使用 AndroidPrinter(Android)/ConsolePrinter(java)
                 consolePrinter,
                 filePrinter);
+
     }
 
     public static BaseConfig getBaseConfig() {
