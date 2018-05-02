@@ -25,6 +25,7 @@ import com.privatee.mylibrary.utils.TaoTools;
 
 import java.lang.reflect.Field;
 
+import static com.privatee.mylibrary.Base.BaseAndroid.baseConfig;
 import static com.privatee.mylibrary.R.id.lay_bg;
 
 /**
@@ -40,9 +41,10 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        initSwipeBackFinish();
+        if(baseConfig.isTitle()){
+            this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏导航栏
+        }
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏任务栏
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Window window = getWindow();
@@ -57,6 +59,10 @@ public abstract class CompatibilityBaseActivity extends FragmentActivity impleme
         inintData();
         TaoTools.i("在"+setNowActivityName()+"oncreate");
         ActivityController.addActivity(this);
+        if(baseConfig.isSwipBack()){
+            initSwipeBackFinish();
+        }
+
     }
 
     @Override

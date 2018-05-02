@@ -39,7 +39,7 @@ public class BaseAndroid {
         Printer androidPrinter = new AndroidPrinter();             // 通过 android.util.Log 打印日志的打印器
         Printer consolePrinter = new ConsolePrinter();             // 通过 System.out 打印日志到控制台的打印器
         Printer filePrinter = new FilePrinter                      // 打印日志到文件的打印器
-                .Builder("/sdcard/xlog/")                              // 指定保存日志文件的路径
+                .Builder("/sdcard/xlog/")                         // 指定保存日志文件的路径
                 .fileNameGenerator(new DateFileNameGenerator())
                 .build();    // 指定日志文件名生成器，默认为 ChangelessFileNameGenerator("log")
 

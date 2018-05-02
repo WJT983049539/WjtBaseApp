@@ -90,4 +90,19 @@ public class BaseConfig {
         return mainclass;
     }
 
+
+
+    /**
+     * 是否使用滑动返回
+     */
+    private   boolean isSwipBack=false;
+
+    public  boolean isSwipBack() {
+        return isSwipBack;
+    }
+
+    public  void setSwipBack(boolean isSwipBackk) {
+        isSwipBack = isSwipBackk;
+    }
+
 }

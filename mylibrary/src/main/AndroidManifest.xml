@@ -9,7 +9,6 @@
         <activity
             android:label="asa"
             android:name=".XingRQ.activity.CaptureActivity"/>
-
     </application>
 
 
