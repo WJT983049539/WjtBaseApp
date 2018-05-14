@@ -37,10 +37,10 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     private long clickTime=0;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         if(baseConfig.isTitle()){
             this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏导航栏
         }
+        super.onCreate(savedInstanceState);
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Window window = getWindow();
@@ -319,8 +319,4 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     public void setInterception(boolean isInterception) {
         this.isInterception = isInterception;
     }
-
-
-
-
 }
