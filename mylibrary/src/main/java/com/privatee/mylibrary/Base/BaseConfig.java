@@ -41,7 +41,7 @@ public class BaseConfig {
     /**
      * app主颜色
      */
-    private int appColor = R.color.blue;
+    private int appColor = 0x00BB29;
 
     public int getAppColor() {
         return appColor;

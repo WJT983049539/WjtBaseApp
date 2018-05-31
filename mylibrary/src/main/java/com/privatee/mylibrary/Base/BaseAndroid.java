@@ -49,6 +49,7 @@ public class BaseAndroid {
                 consolePrinter,
                 filePrinter);
 
+
     }
 
     public static BaseConfig getBaseConfig() {
