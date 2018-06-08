@@ -1,7 +1,5 @@
 package com.privatee.mylibrary.Base;
 
-import com.privatee.mylibrary.R;
-
 /**
  * 类的作用：
  * Created by WJT on  2017/10/27 19:52.
@@ -76,7 +74,7 @@ public class BaseConfig {
     /**
      * APP图标
      */
-    private int appLogo = R.drawable.ic_launcher;
+    private int appLogo;
 
     /**
      * 主Activity,主界面

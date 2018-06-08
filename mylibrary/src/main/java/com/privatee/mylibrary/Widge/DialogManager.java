@@ -28,8 +28,8 @@ public class DialogManager {
 
     public void showProgressDialog(Context context) {
 
-        if (mDialog == null) {
-            mDialog = new LoadingDialog(context);
+        if (mDialog == null||context!=null) {
+            mDialog = new LoadingDialog(context,"");
             mDialog.getWindow().setBackgroundDrawable(
                     new ColorDrawable(android.graphics.Color.TRANSPARENT));
             //设置点击dialog外部，不会自动退出dialog
