@@ -45,8 +45,14 @@ public class ActivityController {
                 activity.finish();
             }
         }
+    }
 
-
+    public static void RemoveOtherActivity(Activity activity2){
+        for(Activity activity:activities){
+            if(!activity.equals(activity2)){
+                activity.finish();
+            }
+        }
     }
 
 }
