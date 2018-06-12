@@ -7,11 +7,11 @@ import com.privatee.mylibrary.Interface.CommonDialogListener;
  * 邮箱 983049539@qq.com
  * Created by WJT on  2018/6/8 11:48.
  */
-public class ToastUtils {
-    private static ToastUtils instances;
+public class TdialogUtils {
+    private static TdialogUtils instances;
     private static CommonDialogListener mListener;
 
-    private ToastUtils() {
+    private TdialogUtils() {
 
     }
 
@@ -19,11 +19,11 @@ public class ToastUtils {
         this.mListener = listener;
     }
 
-    public static ToastUtils getInstances() {
+    public static TdialogUtils getInstances() {
         if (instances == null) {
-            synchronized (ToastUtils.class) {
+            synchronized (TdialogUtils.class) {
                 if (instances == null) {
-                    instances = new ToastUtils();
+                    instances = new TdialogUtils();
                 }
             }
         }
