@@ -23,7 +23,7 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'org.xutils:xutils:3.3.42'
+    //api 'org.xutils:xutils:3.3.42'
     //先使用这个下载完了在换别的
     api 'com.google.code.gson:gson:2.8.0'
     testImplementation 'junit:junit:4.12'
