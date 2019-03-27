@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.privatee.wjtbaseapp">
+       package="com.privatee.wjtbaseapp">
 
     <application
         android:name=".BaseAppaction"
@@ -12,31 +12,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TwoActivity"></activity>
+        <activity android:name=".Activity.TwoActivity"></activity>
         <activity android:name="com.privatee.mylibrary.Widge.AppIntroActivity"
             android:theme="@style/notileTheme"
             />
-        <activity android:name=".WebViewActivity"
+        <activity android:name=".Activity.WebViewActivity"
             android:hardwareAccelerated="true"/>
-        <activity android:name=".Retrofit_RxJavaActivity"/>
+        <activity android:name=".Activity.Retrofit_RxJavaActivity"/>
         <activity android:name=".ButterKnifeActivity"/>
-        <activity android:name=".RecycleListTestActivity"/>
-        <activity android:name=".SytemSetActivity"/>
-        <activity android:name=".ProgressDialogActivity"/>
-        <activity android:name=".FileDownLoadActivity"/>
-        <activity android:name=".TCPTestActivity"/>
-        <activity android:name=".ShareActivity"
+        <activity android:name=".Activity.RecycleListTestActivity"/>
+        <activity android:name=".Activity.SytemSetActivity"/>
+        <activity android:name=".Activity.ProgressDialogActivity"/>
+        <activity android:name=".Activity.FileDownLoadActivity"/>
+        <activity android:name=".Activity.TCPTestActivity"/>
+        <activity android:name=".Activity.ShareActivity"
             android:theme="@style/Theme.Swipe.Back"
             />
-        <activity android:name=".BARRActivity" />
-        <activity android:name=".QRCodeActivity"/>
+        <service android:name=".CommonDialogService"/>
+        <activity android:name="com.privatee.wjtbaseapp.A_V.activity.RxjavaActivity"/>
+
+        <activity android:name=".Activity.GsonTestActivity"/>
+        <activity android:name=".Activity.CustomViewTestActivity"/>
+        <activity android:name=".Activity.EvenBusTestActivity"/>
+        <activity android:name=".Activity.SQLTestActivity"/>
+        <activity android:name=".fragmenttest.FragmentActivity"/>
+        <activity android:name=".Activity.WjtTestActivity"/>
+        <activity android:name=".Activity.CasuallyActivity"/>
+        <activity android:name=".Activity.QRCodeActivity"/>
+        <activity android:name=".Activity.IcReadActivity"/>
+        <activity android:name="com.privatee.wjtbaseapp.A_V.activity.PuBuLActivity"/>
+        <activity android:name="com.privatee.wjtbaseapp.Activity.AndroidCOMTestActivity"/>
+        <activity android:name=".Activity.FaceDomeTestActivity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>

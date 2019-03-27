@@ -1,9 +1,11 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
 import com.privatee.mylibrary.Base.CompatibilityBaseActivity;
+import com.privatee.wjtbaseapp.R;
 
 /**
  * 类的作用：
@@ -24,21 +26,26 @@ public class ShareActivity extends CompatibilityBaseActivity{
 
     @Override
     public void inintView() {
-//        share_button=fvbi(R.id.share_button);
-//        share_button.setOnClickListener(this);
+        share_button=fvbi(R.id.share_button);
+        share_button.setOnClickListener(this);
     }
 
     @Override
     public void inintData() {
 
+//        setTitle("设置");
+//setTitleViewBg(R.drawable.ic_launcher);
     }
 
     @Override
     public void onClick(View view) {
 
-//        if(view.getId()==R.id.share_button){
+        if(view.getId()==R.id.share_button){
 //            showShare();
-//        }
+
+            Intent intent=new Intent(this,TwoActivity.class);
+            startActivity(intent);
+        }
 //    }
 //    private void showShare() {
 //        OnekeyShare oks = new OnekeyShare();

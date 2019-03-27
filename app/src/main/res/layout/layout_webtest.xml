@@ -3,7 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="webview"
+        android:textSize="20sp"
+        android:gravity="center"/>
     <LinearLayout
         android:id="@+id/web_layout"
         android:layout_width="match_parent"
@@ -15,7 +21,9 @@
             android:id="@+id/wbtest"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </com.tencent.smtt.sdk.WebView>
+
+
+    </com.tencent.smtt.sdk.WebView>
 
     </LinearLayout>
 </LinearLayout>

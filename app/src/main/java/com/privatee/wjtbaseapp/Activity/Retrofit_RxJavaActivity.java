@@ -1,10 +1,11 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.util.Log;
 import android.view.View;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.privatee.mylibrary.Base.BaseActivity;
+import com.privatee.wjtbaseapp.R;
 import com.privatee.wjtbaseapp.RetrofitAll.GetRequest_Interface;
 import com.privatee.wjtbaseapp.RetrofitAll.GetRequest_Rxjava_Interface;
 import com.privatee.wjtbaseapp.RetrofitAll.GetYouDaoRequest_Interface;
@@ -60,7 +61,7 @@ public class Retrofit_RxJavaActivity extends BaseActivity{
 
     //具体的操作类
     private void request() {
-
+        //4部操作
         //创建Retrofit对象
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("http://fy.iciba.com/")//设置网络请求url

@@ -35,6 +35,7 @@ public class ButterKnifeActivity extends Activity {
 
     @OnClick(R.id.knife_button)
     public void buttonClick(Button button){
+
         knife_textview.setText("我被小刀感染啦！");
     }
 }

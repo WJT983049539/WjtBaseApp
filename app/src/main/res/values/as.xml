@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <declare-styleable name="PercentView">
+        <attr name="percent_circle_gravity" ><!--圆形绘制的位置-->
+            <flag name="left" value="0" />
+            <flag name="top" value="1"/>
+            <flag name="center" value="2"/>
+            <flag name="right" value="3"/>
+            <flag name="bottom" value="4"/>
+        </attr>
+
+        <!-- attr 里面包含一个属性-->
+
+    </declare-styleable>
+</resources>

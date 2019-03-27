@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,10 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.GsonBuilder;
 import com.privatee.mylibrary.Base.BaseActivity;
+import com.privatee.wjtbaseapp.A_M.A_bean.Book;
+import com.privatee.wjtbaseapp.A_M.A_impl.RetrofitService;
+import com.privatee.wjtbaseapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 类的作用：
@@ -23,6 +33,7 @@ import java.util.List;
     private List<String> mDatas=new ArrayList<>();
 
     private RecyclerView recyclerview_test;
+    private TextView testText;
 
     @Override
     public String setNowActivityName() {
@@ -37,6 +48,7 @@ import java.util.List;
     @Override
     public void inintView() {
         recyclerview_test=fvbi(R.id.recyclerview_test);
+        testText=fvbi(R.id.testText);
         //创建布局管理器，主要是运用在布局方向:(横向布局，纵向布局，瀑布流布局)
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this);
         //放入布局管理器
@@ -48,15 +60,38 @@ import java.util.List;
 
     @Override
     public void inintData() {
-        for(int i=0;i<100;i++){
-            mDatas.add(""+i);
-        }
+
+        getData();
+
         // 设置适配器
         recyclerview_test.setAdapter(new MyRecyclerAdapter(this, mDatas));
     }
 
     @Override
     public void onClick(View view) {
+
+    }
+
+    public void getData() {
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl("https://api.douban.com/v2/")
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
+                .build();
+        RetrofitService retrofitService=retrofit.create(RetrofitService.class);
+        Call<Book> call=retrofitService.getSeacherBook("金瓶梅",null,0,1);
+        call.enqueue(new Callback<Book>() {
+            @Override
+            public void onResponse(Call<Book> call, Response<Book> response) {
+                testText.setText(response.body().toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<Book> call, Throwable t) {
+
+            }
+        });
+
 
     }
 

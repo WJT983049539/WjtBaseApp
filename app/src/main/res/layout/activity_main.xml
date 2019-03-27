@@ -5,12 +5,30 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.privatee.wjtbaseapp.MainActivity">
+    tools:context="com.privatee.wjtbaseapp.Activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <Button
+            android:id="@+id/weixinLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/recycle_button"
+            android:text="微信登录测试"
+            android:layout_alignParentRight="true"
+            android:textColor="#ff0000"/>
+
+        <Button
+            android:id="@+id/fragment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tcp_button"
+            android:layout_below="@+id/numberbar1"
+            android:text="Toast测试"
+            tools:ignore="RtlCompat" />
 
         <TextView
             android:id="@+id/aaa"
@@ -36,6 +54,7 @@
             android:layout_below="@+id/welcome_button"
             android:layout_marginTop="14dp"
             android:layout_toEndOf="@+id/welcome_button"
+            android:layout_toRightOf="@+id/welcome_button"
             android:text="测试"
             tools:layout_editor_absoluteX="120dp"
             tools:layout_editor_absoluteY="188dp" />
@@ -44,6 +63,7 @@
             android:id="@+id/welcome_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/numberbar1"
             android:text="欢迎页测试下"
@@ -58,7 +78,8 @@
             android:layout_below="@+id/numberbar1"
             android:layout_marginStart="25dp"
             android:layout_toEndOf="@+id/textView"
-            android:text="Toast测试" />
+            android:text="Toast测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/webview_button"
@@ -66,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/aaa"
             android:layout_toStartOf="@+id/textView"
-            android:text="webView测试" />
+            android:text="webView测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/retrofit_rx_button"
@@ -75,16 +97,18 @@
             android:layout_alignBaseline="@+id/webview_button"
             android:layout_alignBottom="@+id/webview_button"
             android:layout_alignStart="@+id/toast_button"
-            android:text="retrofit_Rxjava测试" />
+            android:text="retrofit_Rxjava测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/Sysatem_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/webview_button"
-            android:layout_marginTop="21dp"
-            android:text="开关机设定" />
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="193dp"
+            android:text="开关机设定"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/kk_button"
@@ -92,7 +116,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/Sysatem_button"
             android:layout_alignEnd="@+id/toast_button"
-            android:text="测试小刀" />
+            android:text="测试小刀"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/recycle_button"
@@ -101,7 +126,8 @@
             android:layout_alignEnd="@+id/Sysatem_button"
             android:layout_below="@+id/Sysatem_button"
             android:layout_marginTop="16dp"
-            android:text="RecyclerView测试" />
+            android:text="RecyclerView测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/gotwo_button"
@@ -109,7 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/recycle_button"
             android:layout_alignEnd="@+id/kk_button"
-            android:text="调到two" />
+            android:text="调到two"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/progtess_button"
@@ -117,8 +144,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/recycle_button"
-            android:layout_marginTop="23dp"
-            android:text="进度条弹窗测试" />
+            android:text="进度条弹窗测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/action_barr"
@@ -126,16 +153,38 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/retrofit_rx_button"
             android:layout_alignTop="@+id/progtess_button"
-            android:text="bar测试" />
+            android:text="bar测试"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/download_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/progtess_button"
-            android:layout_marginTop="30dp"
-            android:text="下载器测试" />
+            android:layout_marginBottom="93dp"
+            android:text="下载器测试"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/evenbus_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/toast_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="28dp"
+            android:text="EvenBus测试"
+            android:layout_alignRight="@+id/toast_button" />
+
+        <Button
+            android:id="@+id/green_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="38dp"
+            android:text="Green测试" />
 
         <Button
             android:id="@+id/share_button"
@@ -143,25 +192,100 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/download_button"
             android:layout_alignEnd="@+id/action_barr"
-            android:text="分享测试" />
+            android:text="分享测试"
+            tools:ignore="RtlCompat"
+            android:textColor="#ff0000"/>
 
         <Button
             android:id="@+id/tcp_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/no_defined_button"
+            android:layout_alignTop="@+id/evenbus_button"
+            android:text="长连接"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/no_defined_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/share_button"
             android:layout_marginStart="15dp"
             android:layout_toEndOf="@+id/gotwo_button"
-            android:text="长连接" />
+            android:text="未定义button"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/qrcode_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="二维码测试"
             android:layout_alignBaseline="@+id/action_barr"
             android:layout_alignBottom="@+id/action_barr"
-            android:layout_alignStart="@+id/tcp_button" />
+            android:layout_alignStart="@+id/tcp_button"
+            android:text="二维码测试"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/listviewscroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="listviewScroll"
+            android:layout_toRightOf="@+id/progtess_button" />
+
+        <Button
+            android:id="@+id/gsonTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gson测试" />
+
+        <Button
+            android:id="@+id/custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tcp_button"
+            android:layout_alignStart="@+id/tcp_button"
+            android:layout_alignTop="@+id/Sysatem_button"
+            android:text="自定义控件测试Button" />
+        <Button
+            android:id="@+id/sqldate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tcp_button"
+            android:layout_alignStart="@+id/tcp_button"
+            android:layout_alignTop="@+id/Sysatem_button"
+            android:text="让你写一个数据库你会写吗" />
+
+        <Button
+            android:id="@+id/custom_view_radar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="自定义雷达图"
+            android:layout_alignLeft="@+id/weixinLogin" />
+
+        <Button
+            android:id="@+id/readic_button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:text="ic卡读取测试"
+            android:layout_alignRight="@+id/Sysatem_button" />
+
+        <Button
+            android:id="@+id/androidCOM_iccard_test_button"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:text="安卓串口测试"
+            android:layout_toRightOf="@+id/Sysatem_button" />
+        <Button
+            android:id="@+id/facetest"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:text="面部识别厕所"
+            android:layout_toRightOf="@+id/androidCOM_iccard_test_button" />
 
     </RelativeLayout>
 </LinearLayout>

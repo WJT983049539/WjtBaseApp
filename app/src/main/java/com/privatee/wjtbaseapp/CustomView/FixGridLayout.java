@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.CustomView;
 
 import android.content.Context;
 import android.graphics.Canvas;

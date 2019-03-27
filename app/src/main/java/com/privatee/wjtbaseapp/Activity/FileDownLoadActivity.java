@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.os.Environment;
 import android.view.View;
@@ -9,9 +9,10 @@ import com.liulishuo.filedownloader.FileDownloader;
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.Widge.NumberProgressBar;
 import com.privatee.mylibrary.utils.TaoTools;
+import com.privatee.wjtbaseapp.R;
 
 /**
- * 类的作用：
+ * 类的作用：下载器demo
  * Created by WJT on  2018/4/16 17:32.
  */
 

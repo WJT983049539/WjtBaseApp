@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.XingRQ.activity.CaptureActivity;
 import com.privatee.mylibrary.XingRQ.encoding.EncodingUtils;
+import com.privatee.wjtbaseapp.R;
 
 /**
  * 类的作用：二维码

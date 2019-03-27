@@ -1,10 +1,11 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.view.View;
 import android.widget.Button;
 
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.utils.CustomProgressDialog;
+import com.privatee.wjtbaseapp.R;
 
 /**
  * 类的作用：

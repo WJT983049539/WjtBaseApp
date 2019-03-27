@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.privatee.mylibrary.Base.BaseActivity;
+import com.privatee.wjtbaseapp.R;
 
 /**
  * 类的作用：测试板子开关机的

@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.Base.BaseConfig;
 import com.privatee.mylibrary.Widge.AppIntroActivity;
+import com.privatee.wjtbaseapp.A_V.activity.PuBuLActivity;
+import com.privatee.wjtbaseapp.ButterKnifeActivity;
+import com.privatee.wjtbaseapp.R;
+import com.privatee.wjtbaseapp.fragmenttest.FragmentActivity;
 
 public class MainActivity extends BaseActivity {
     private TextView aaa;
@@ -65,11 +69,23 @@ public class MainActivity extends BaseActivity {
         fvbi(R.id.tcp_button).setOnClickListener(this);
         fvbi(R.id.action_barr).setOnClickListener(this);
         fvbi(R.id.qrcode_button).setOnClickListener(this);
+        fvbi(R.id.gsonTest).setOnClickListener(this);
+        fvbi(R.id.custom_button).setOnClickListener(this);
+        fvbi(R.id.evenbus_button).setOnClickListener(this);
+        fvbi(R.id.green_button).setOnClickListener(this);
+        fvbi(R.id.sqldate_button).setOnClickListener(this);
+        fvbi(R.id.fragment_button).setOnClickListener(this);
+        fvbi(R.id.listviewscroll).setOnClickListener(this);
+        fvbi(R.id.no_defined_button).setOnClickListener(this);
+        fvbi(R.id.weixinLogin).setOnClickListener(this);
+        fvbi(R.id.custom_view_radar).setOnClickListener(this);
+        fvbi(R.id.readic_button).setOnClickListener(this);
+        fvbi(R.id.androidCOM_iccard_test_button).setOnClickListener(this);
+        fvbi(R.id.facetest).setOnClickListener(this);
     }
 
     @Override
         public void inintData() {
-
     }
 
     @Override
@@ -150,7 +166,53 @@ public class MainActivity extends BaseActivity {
             case R.id.qrcode_button:
                 openActivity(QRCodeActivity.class);
                 break;
-
+            case R.id.gsonTest:
+                openActivity(GsonTestActivity.class);
+                break;
+            case R.id.custom_button:
+                openActivity(CustomViewTestActivity.class);
+                break;
+                //evenbus练习
+            case R.id.evenbus_button:
+                openActivity(EvenBusTestActivity.class);
+                break;
+            case R.id.green_button:
+                //greenDao数据库测试
+                break;
+                //自己写一个数据库
+            case R.id.sqldate_button:
+                openActivity(SQLTestActivity.class);
+                break;
+            case R.id.fragment_button:
+                openActivity(FragmentActivity.class);
+                break;
+            case R.id.listviewscroll:
+                openActivity(WjtTestActivity.class);
+                break;
+            case R.id.no_defined_button:
+                //练习的类
+//                 openActivity(CasuallyActivity.class);
+                openActivity(PuBuLActivity.class);
+                break;
+                //微信登录测试按钮
+            case R.id.weixinLogin:
+                openActivity(WeiXinLoginActivity.class);
+                break;
+                //自定义雷达图
+            case R.id.custom_view_radar:
+                openActivity(RadarActivity.class);
+                break;
+                //ic卡读取测试
+            case R.id.readic_button:
+                openActivity(IcReadActivity.class);
+                break;
+                //安卓读卡测试
+            case R.id.androidCOM_iccard_test_button:
+                openActivity(AndroidCOMTestActivity.class);
+                break;
+            case R.id.facetest:
+                openActivity(FaceDomeTestActivity.class);
+                break;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.privatee.wjtbaseapp;
+package com.privatee.wjtbaseapp.Activity;
 
 import android.os.Handler;
 import android.os.Message;
@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.utils.TaoTools;
+import com.privatee.wjtbaseapp.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
