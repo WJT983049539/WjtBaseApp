@@ -149,7 +149,19 @@ public class PuBuLActivity extends BaseActivity{
                 }else if(productList.get(postion).getIconName().equals("Rxjava测试")){
                     openActivity(RxjavaActivity.class);
                 }else if(productList.get(postion).getIconName().equals("serviceBind练习")){
+                    openActivity(ServiceBindTestActivity.class);
+                    //开关一类的
+                }else if(productList.get(postion).getIconName().equals("seekbar控件")){
+                    openActivity(SeekBarTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("算法练习")){
                     //创建service
+                    openActivity(AlgorithmTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("购物车控件练习可以删除")){
+                    //创建service
+                    openActivity(GwcTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("自定义dialog")){
+                    //创建service
+                    openActivity(CustomDialogActivity.class);
                 }
 
             }
@@ -188,6 +200,11 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("webViewJS交互"));
         productList.add(new IconName("Rxjava测试"));//未做
         productList.add(new IconName("serviceBind练习"));//未做
+        productList.add(new IconName("seekbar控件"));//未做
+        productList.add(new IconName("算法练习"));//未做
+        productList.add(new IconName("购物车控件练习可以删除"));//购物车
+        productList.add(new IconName("自定义dialog"));//购物车
+
 
     }
 

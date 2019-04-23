@@ -64,4 +64,7 @@ dependencies {
     implementation files('libs/libreadface.jar')
     implementation files('libs/facetracking.jar')
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
+    //加减控件
+    implementation 'com.mengfei:AddSubUtils:1.5.0'
 }

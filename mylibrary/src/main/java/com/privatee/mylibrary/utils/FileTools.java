@@ -1,16 +1,29 @@
 package com.privatee.mylibrary.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.StatFs;
+import android.os.storage.StorageManager;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * 类的作用：文件管理
@@ -199,6 +212,90 @@ public class FileTools {
         }
     }
 
+    /**
+     * 修改文件内容（覆盖或者添加）
+     *
+     * @param path    文件地址
+     * @param content 覆盖内容
+     * @param append  指定了写入的方式，是覆盖写还是追加写(true=追加)(false=覆盖)
+     */
+    public static void modifyFile(String path, String content, boolean append) {
+        try {
+            FileWriter fileWriter = new FileWriter(path, append);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.append(content);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 读取文件内容
+     *
+     * @param filePath 地址
+     * @param filename 名称
+     * @return 返回内容
+     */
+    public static String getString(String filePath, String filename) {
+        FileInputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(new File(filePath + filename));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        InputStreamReader inputStreamReader = null;
+        try {
+            inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        StringBuffer sb = new StringBuffer("");
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+                sb.append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+
+    /**
+     * 向文件中添加内容
+     *
+     * @param strcontent 内容
+     * @param filePath   地址
+     * @param fileName   文件名
+     */
+    public static void writeToFile(String strcontent, String filePath, String fileName) {
+        //生成文件夹之后，再生成文件，不然会出错
+        String strFilePath = filePath + fileName;
+        // 每次写入时，都换行写
+
+        File subfile = new File(strFilePath);
+
+
+        RandomAccessFile raf = null;
+        try {
+            /**   构造函数 第二个是读写方式    */
+            raf = new RandomAccessFile(subfile, "rw");
+            /**  将记录指针移动到该文件的最后  */
+            raf.seek(subfile.length());
+            /** 向文件末尾追加内容  */
+            raf.write(strcontent.getBytes());
+
+            raf.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * 获取可用的SD卡路径（若SD卡不没有挂载则返回""）
@@ -341,4 +438,92 @@ public class FileTools {
         }
         return true;
     }
+
+    /**
+     * 复制文件
+     *
+     * @param fromFile 要复制的文件目录
+     * @param toFile   要粘贴的文件目录
+     * @return 是否复制成功
+     */
+    public static boolean copy(String fromFile, String toFile) {
+        //要复制的文件目录
+        File[] currentFiles;
+        File root = new File(fromFile);
+        //如同判断SD卡是否存在或者文件是否存在
+        //如果不存在则 return出去
+        if (!root.exists()) {
+            return false;
+        }
+        //如果存在则获取当前目录下的全部文件 填充数组
+        currentFiles = root.listFiles();
+
+        //目标目录
+        File targetDir = new File(toFile);
+        //创建目录
+        if (!targetDir.exists()) {
+            targetDir.mkdirs();
+        }
+        //遍历要复制该目录下的全部文件
+        for (int i = 0; i < currentFiles.length; i++) {
+            if (currentFiles[i].isDirectory())//如果当前项为子目录 进行递归
+            {
+                copy(currentFiles[i].getPath() + "/", toFile + currentFiles[i].getName() + "/");
+
+            } else//如果当前项为文件则进行文件拷贝
+            {
+                CopySdcardFile(currentFiles[i].getPath(), toFile + currentFiles[i].getName());
+            }
+        }
+        return true;
+    }
+    //文件拷贝
+    //要复制的目录下的所有非子目录(文件夹)文件拷贝
+    public static boolean CopySdcardFile(String fromFile, String toFile) {
+
+        try {
+            InputStream fosfrom = new FileInputStream(fromFile);
+            OutputStream fosto = new FileOutputStream(toFile);
+            byte bt[] = new byte[1024];
+            int c;
+            while ((c = fosfrom.read(bt)) > 0) {
+                fosto.write(bt, 0, c);
+            }
+            fosfrom.close();
+            fosto.close();
+            return true;
+
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
+
+    /**
+     * 获取外置SD卡路径
+     * String[0]为内置卡
+     * String[1]为外置卡
+     */
+    public String[] getExtSDCardPath(Activity activity) {
+        StorageManager storageManager = (StorageManager) activity.getSystemService(Context.STORAGE_SERVICE);
+        try {
+            Class<?>[] paramClasses = {};
+            Method getVolumePathsMethod = StorageManager.class.getMethod("getVolumePaths", paramClasses);
+            getVolumePathsMethod.setAccessible(true);
+            Object[] params = {};
+            Object invoke = getVolumePathsMethod.invoke(storageManager, params);
+            return (String[])invoke;
+        } catch (NoSuchMethodException e1) {
+            e1.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 }

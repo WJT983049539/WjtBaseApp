@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp">
+
+    <SeekBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/text1"
+        android:maxHeight="2dp"
+        android:minHeight="2dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="12dp"
+        android:max="200"
+        android:paddingRight="12dp"
+        android:paddingTop="3dp"
+        android:progressDrawable="@drawable/layer_progress"
+        android:thumb="@drawable/shape_circle" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="68dp"
+        android:layout_marginRight="0dp"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Value:0"
+        android:textColor="#16BC5C"
+        android:textSize="16dp" />
+
+    <com.warkiz.widget.IndicatorSeekBar
+        android:id="@+id/custom_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="131dp"
+        app:isb_indicator_color="@color/gray"
+        app:isb_indicator_text_color="@color/colorAccent"
+        app:isb_indicator_text_size="18sp"
+        app:isb_seek_smoothly="true"
+        app:isb_show_indicator="none"
+        app:isb_show_tick_marks_type="oval"
+        app:isb_show_tick_texts="true"
+        app:isb_thumb_color="#005279"
+        app:isb_thumb_size="20dp"
+        app:isb_tick_marks_drawable="@drawable/tick_marks"
+        app:isb_tick_marks_size="13dp"
+        app:isb_tick_texts_color="@color/blue"
+        app:isb_tick_texts_size="15sp"
+        app:isb_ticks_count="4"
+        app:isb_track_background_color="@color/gray"
+        app:isb_track_background_size="2dp"
+        app:isb_track_progress_color="@color/blue"
+        app:isb_track_progress_size="4dp"
+        app:isb_tick_texts_array="@array/texts_below_tick_length_4"
+        app:isb_show_thumb_text="true"
+        />
+
+    <!--thuumb 是按钮背景   track 是整个背景-->
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_below="@+id/custom_seekbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="201dp"
+        android:layout_marginLeft="201dp"
+        android:layout_marginTop="435dp"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginBottom="169dp"
+        android:text="860测试电能表字体"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

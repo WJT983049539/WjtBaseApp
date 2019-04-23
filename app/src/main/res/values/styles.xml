@@ -26,5 +26,20 @@
     <style name="PopupAnimation" parent="android:Animation" mce_bogus="1">        
                 <item name="android:windowEnterAnimation">@anim/popup_enter</item>   
                 <item name="android:windowExitAnimation">@anim/popup_exit</item>   
-            </style>   
+            </style>  
+
+
+    <!--自定义Dialog背景全透明无边框theme-->
+    <style name="MyDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style> 
 </resources>

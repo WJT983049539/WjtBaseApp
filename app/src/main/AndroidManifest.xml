@@ -50,6 +50,10 @@
         <activity android:name="com.privatee.wjtbaseapp.A_V.activity.PuBuLActivity"/>
         <activity android:name="com.privatee.wjtbaseapp.Activity.AndroidCOMTestActivity"/>
         <activity android:name=".Activity.FaceDomeTestActivity"/>
+        <activity android:name=".A_V.activity.SeekBarTestActivity"/>
+        <activity android:name=".A_V.activity.AlgorithmTestActivity"/>
+        <activity android:name=".A_V.activity.GwcTestActivity"/>
+        <activity android:name=".A_V.activity.CustomDialogActivity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>

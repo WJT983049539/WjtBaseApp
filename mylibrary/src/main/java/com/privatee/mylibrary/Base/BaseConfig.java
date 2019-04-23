@@ -1,5 +1,7 @@
 package com.privatee.mylibrary.Base;
 
+import com.privatee.mylibrary.R;
+
 /**
  * 类的作用：
  * Created by WJT on  2017/10/27 19:52.
@@ -39,7 +41,7 @@ public class BaseConfig {
     /**
      * app主颜色
      */
-    private int appColor = 0x00BB29;
+    private int appColor = R.color.blue;
 
     public int getAppColor() {
         return appColor;
