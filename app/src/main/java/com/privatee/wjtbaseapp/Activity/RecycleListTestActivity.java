@@ -24,7 +24,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * 类的作用：
+ * 类的作用：RecyclerView的各种写法，练习，比如拖拽，自定义item,局部更新，定时跟新
  * Created by WJT on  2018/1/29 10:08.
  */
 
@@ -73,24 +73,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
     }
 
     public void getData() {
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("https://api.douban.com/v2/")
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
-                .build();
-        RetrofitService retrofitService=retrofit.create(RetrofitService.class);
-        Call<Book> call=retrofitService.getSeacherBook("金瓶梅",null,0,1);
-        call.enqueue(new Callback<Book>() {
-            @Override
-            public void onResponse(Call<Book> call, Response<Book> response) {
-                testText.setText(response.body().toString());
-
-            }
-
-            @Override
-            public void onFailure(Call<Book> call, Throwable t) {
-
-            }
-        });
 
 
     }

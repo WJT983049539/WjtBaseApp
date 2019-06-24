@@ -8,11 +8,11 @@ import android.widget.Toast;
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.utils.TaoTools;
 import com.privatee.mylibrary.utils.ToastManager;
-import com.privatee.wjtbaseapp.CustomView.CustonDialog;
+import com.privatee.wjtbaseapp.A_tools.GlobalToast;
+import com.privatee.wjtbaseapp.CustomView.CustomEidtDialog;
 import com.privatee.wjtbaseapp.R;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -36,23 +36,29 @@ public class CustomDialogActivity extends BaseActivity {
 
     @Override
     public void inintView() {
+
         button2=fvbi(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustonDialog custonDialog=new CustonDialog(CustomDialogActivity.this);
+                final CustomEidtDialog custonDialog=new CustomEidtDialog(CustomDialogActivity.this);
                 custonDialog.setMessage("這是中間顯示的信息");
                 custonDialog.setTitle("提示");
-                custonDialog.setYesOnclickListener("確定", new CustonDialog.onYesOnclickListener() {
+                custonDialog.setYesOnclickListener("確定", new CustomEidtDialog.onYesOnclickListener() {
                     @Override
                     public void onYesOnclick() {
-                        ToastManager.getInstnce().showToast(CustomDialogActivity.this,"點擊了確定按鈕");
+//                        ToastManager.getInstnce().showToast(CustomDialogActivity.this,"點擊了確定按鈕");
+                        GlobalToast.show("点击了确定按钮",Toast.LENGTH_LONG);
+
+
+                       String ste= custonDialog.getMessageStr();
                     }
                 });
-                custonDialog.setNoOnclickListener("取消", new CustonDialog.onNoOnclickListener() {
+                custonDialog.setNoOnclickListener("取消", new CustomEidtDialog.onNoOnclickListener() {
                     @Override
                     public void onNoClick() {
-                        ToastManager.getInstnce().showToast(CustomDialogActivity.this,"點擊了取消按鈕");
+//                        ToastManager.getInstnce().showToast(CustomDialogActivity.this,"點擊了取消按鈕");
+                        GlobalToast.show("点击了取消按钮",Toast.LENGTH_LONG);
                     }
                 });
                 custonDialog.show();

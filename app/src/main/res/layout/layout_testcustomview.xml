@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context="com.privatee.wjtbaseapp.Activity.CustomViewTestActivity">
+    <!--xmlns:wjtcustom="http://schemas.android.com/apk/res-auto"-->
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="reset"/>
+
+    <com.privatee.wjtbaseapp.CustomView.MyView
+        android:id="@+id/myview"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+        <!--wjtcustom:my_name="王江涛"-->
+        <!--wjtcustom:my_age="24"-->
+        <!--wjtcustom:my_bg="@drawable/nio"-->
+
+
+</LinearLayout>

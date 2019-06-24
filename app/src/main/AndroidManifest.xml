@@ -12,6 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+        android:name="xposedmodule"
+        android:value="true"/>
+        <meta-data
+        android:name="xposeddescription"
+        android:value="holle xposed"/>
+        <meta-data
+        android:name="xposedminversion"
+            android:value="54"/>
+
+        <!--android:value="82"/>-->
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +46,7 @@
         <activity android:name=".Activity.ShareActivity"
             android:theme="@style/Theme.Swipe.Back"
             />
+        <activity android:name=".A_V.activity.GreenDaoTestActivity"/>
         <service android:name=".CommonDialogService"/>
         <activity android:name="com.privatee.wjtbaseapp.A_V.activity.RxjavaActivity"/>
 
@@ -54,6 +66,14 @@
         <activity android:name=".A_V.activity.AlgorithmTestActivity"/>
         <activity android:name=".A_V.activity.GwcTestActivity"/>
         <activity android:name=".A_V.activity.CustomDialogActivity"/>
+        <activity android:name="com.privatee.wjtbaseapp.A_V.activity.ServiceBindTestActivity"/>
+        <service android:name="com.privatee.wjtbaseapp.service.MyTestService"/>
+        <activity android:name=".A_V.activity.ConstrainlayoutTestActivity"/>
+        <activity android:name=".A_V.activity.AcacheTestActicity"/>
+        <activity android:name=".A_V.activity.GDSubtitleActivity"/>
+        <activity android:name=".A_V.activity.PermissionTestActivity"/>
+        <activity android:name=".A_V.activity.XposedTestActivity"/>
+        <activity android:name=".A_V.activity.AirpayTestActivity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>

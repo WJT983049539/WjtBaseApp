@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--双开关item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="2dp"
+    android:background="@mipmap/item_bg"
+    >
+
+    <LinearLayout
+        android:id="@+id/item_kongtiao_kg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/kongtiao"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="空调10"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            ></LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_kongtiao_wd"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="温度"
+            android:textSize="20sp"
+            />
+        <com.jmf.addsubutils.AddSubUtils
+            android:id="@+id/add_sub"
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:src="@mipmap/sd_close"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/item_kongtiao_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:src="@mipmap/wind_open"/>
+
+
+        <com.warkiz.widget.IndicatorSeekBar
+            android:id="@+id/custom_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            app:isb_indicator_color="@color/gray"
+            app:isb_indicator_text_color="@color/colorAccent"
+            app:isb_indicator_text_size="18sp"
+            app:isb_seek_smoothly="true"
+            app:isb_show_indicator="none"
+            app:isb_show_tick_marks_type="oval"
+            app:isb_show_tick_texts="true"
+            app:isb_thumb_color="#005279"
+            app:isb_thumb_size="20dp"
+            app:isb_tick_marks_drawable="@mipmap/dian"
+            app:isb_tick_marks_size="10dp"
+            app:isb_tick_texts_color="@color/blue"
+            app:isb_tick_texts_size="10sp"
+            app:isb_ticks_count="4"
+            app:isb_track_background_color="@color/gray"
+            app:isb_track_background_size="2dp"
+            app:isb_track_progress_color="@color/blue"
+            app:isb_track_progress_size="4dp"
+            app:isb_tick_texts_array="@array/texts_below_tick_length_4"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/item_kongtiao_ms"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_marginLeft="2dp"
+                android:text="模式"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:src="@mipmap/make_hot_open"
+                >
+
+
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:src="@mipmap/make_code_open"
+                ></ImageView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            ></LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -10,11 +10,17 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
     }
     allprojects {
         repositories {
             google()
             jcenter()
+            maven { url "https://jitpack.io" }
+            flatDir {
+                dirs 'libs'
+            }
+
         }
     }
 }

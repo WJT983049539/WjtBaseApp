@@ -25,9 +25,9 @@ public class TaoTools {
      */
     public static void i(String msg){
         Log.i("seeLog",msg);
+        Logger.i(msg);
 //        XLog.i(msg);
     }
-
 
 
 

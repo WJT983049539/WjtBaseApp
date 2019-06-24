@@ -1,0 +1,104 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/btn_add_frag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="56dp"
+                android:text="ADD  Fragment1"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:id="@+id/btn_add_frag4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_add_frag1"
+                android:text="ADD  Fragment4"
+                android:layout_toRightOf="@+id/btn_add_frag2" />
+
+            <Button
+                android:id="@+id/btn_add_frag2"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/btn_add_frag1"
+                android:text="ADD  Fragment2"
+                android:layout_alignLeft="@+id/btn_add_frag1" />
+
+            <Button
+                android:id="@+id/btn_add_frag3"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="ADD  Fragment3"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp" />
+
+            <Button
+                android:id="@+id/button_popbackstack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_add_frag1"
+                android:text="popbackstack"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:id="@+id/button_BackToFrag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/btn_add_frag3"
+                android:layout_below="@+id/btn_add_frag1"
+                android:text="BackToFrag_2.0"
+                android:layout_alignLeft="@+id/btn_add_frag3" />
+
+            <Button
+                android:id="@+id/button_BackToStack2_INCLUSIVE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="BackToStack2_INCLUSIVE"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="11dp" />
+
+            <Button
+                android:id="@+id/receple_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="receple_fragmentOne"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="13dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</LinearLayout>

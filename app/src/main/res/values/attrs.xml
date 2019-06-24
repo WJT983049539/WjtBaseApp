@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--定义一个名字叫myattributeView的属性集合 -->
+    <declare-styleable name="MyattributeView">
+        <attr name="my_name" format="string"/>
+        <attr name="my_age" format="integer"/>
+        <attr name="my_bg" format="reference|color"/>
+    </declare-styleable>
+
+        <declare-styleable name="AmountView">
+            <!-- 左右2边+-按钮的宽度 -->
+            <attr name="btnWidth" format="dimension" />
+            <!-- 中间TextView的宽度 -->
+            <attr name="tvWidth" format="dimension" />
+            <!--<attr name="tvColor" format="color"/>-->
+            <attr name="tvTextSize" format="dimension"/>
+            <attr name="btnTextSize" format="dimension"/>
+        </declare-styleable>
+</resources>

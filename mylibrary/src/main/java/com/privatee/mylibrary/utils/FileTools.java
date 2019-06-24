@@ -504,7 +504,7 @@ public class FileTools {
      * String[0]为内置卡
      * String[1]为外置卡
      */
-    public String[] getExtSDCardPath(Activity activity) {
+    public static String[] getExtSDCardPath(Activity activity) {
         StorageManager storageManager = (StorageManager) activity.getSystemService(Context.STORAGE_SERVICE);
         try {
             Class<?>[] paramClasses = {};

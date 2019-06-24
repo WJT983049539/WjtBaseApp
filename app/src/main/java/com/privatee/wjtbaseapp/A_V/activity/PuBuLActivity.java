@@ -11,6 +11,7 @@ import com.privatee.mylibrary.Widge.AppIntroActivity;
 import com.privatee.wjtbaseapp.A_M.A_adapter.MasonryAdapter;
 import com.privatee.wjtbaseapp.A_M.A_bean.IconName;
 import com.privatee.wjtbaseapp.A_helper.SpacesItemDecoration;
+import com.privatee.wjtbaseapp.A_tools.GlobalToast;
 import com.privatee.wjtbaseapp.Activity.BARRActivity;
 import com.privatee.wjtbaseapp.Activity.CustomViewTestActivity;
 import com.privatee.wjtbaseapp.Activity.EvenBusTestActivity;
@@ -48,7 +49,6 @@ public class PuBuLActivity extends BaseActivity{
     public String setNowActivityName() {
         return null;
     }
-
     @Override
     public int setLayout() {
         return R.layout.layout_activity_pubu;
@@ -58,8 +58,6 @@ public class PuBuLActivity extends BaseActivity{
     public void inintView() {
 
         BaseConfig.setMainclass(TwoActivity.class);
-
-
         recyclerView= (RecyclerView) findViewById(R.id.recycler);
         //设置layoutManager
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
@@ -119,6 +117,7 @@ public class PuBuLActivity extends BaseActivity{
 
                 }else if(productList.get(postion).getIconName().equals("bar测试")){
                     openActivity(BARRActivity.class);
+
                 }else if(productList.get(postion).getIconName().equals("下载器测试")){
                     openActivity(FileDownLoadActivity.class);
 
@@ -159,11 +158,39 @@ public class PuBuLActivity extends BaseActivity{
                 }else if(productList.get(postion).getIconName().equals("购物车控件练习可以删除")){
                     //创建service
                     openActivity(GwcTestActivity.class);
-                }else if(productList.get(postion).getIconName().equals("自定义dialog")){
+                }else if(productList.get(postion).getIconName().equals("自定义dialog和全局吐司")){
                     //创建service
                     openActivity(CustomDialogActivity.class);
-                }
+                }else if(productList.get(postion).getIconName().equals("约束布局ConstrainLayout")){
+                    //创建service
+                    openActivity(ConstrainlayoutTestActivity.class);
 
+                }else if(productList.get(postion).getIconName().equals("GreenDao测试")){
+                    //创建service
+                    openActivity(GreenDaoTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("地图测试")){//没做
+                    //创建service
+                }else if(productList.get(postion).getIconName().equals("视频播放器测试")){//没做
+                    //创建service
+                }else if(productList.get(postion).getIconName().equals("ACache练习")){
+                    openActivity(AcacheTestActicity.class);
+                    //创建service
+                }else if(productList.get(postion).getIconName().equals("直播视频")){// todo 没做
+
+                }else if(productList.get(postion).getIconName().equals("滚动字幕")){//todo 没做
+                    openActivity(GDSubtitleActivity.class);
+                }else if(productList.get(postion).getIconName().equals("权限获取练习")){
+                    openActivity(PermissionTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("P2P连接测试")){//搁置
+                    openActivity(P2PTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("支付宝支付练习")){//todo 没做
+                    openActivity(AirpayTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("xposed框架运行时截取练习")){//todo 没做
+                    openActivity(XposedTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("文件上传下载")) {//todo 没做
+                    openActivity(XposedTestActivity.class);
+
+                }
             }
         });
 
@@ -203,10 +230,20 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("seekbar控件"));//未做
         productList.add(new IconName("算法练习"));//未做
         productList.add(new IconName("购物车控件练习可以删除"));//购物车
-        productList.add(new IconName("自定义dialog"));//购物车
-
+        productList.add(new IconName("自定义dialog和全局吐司"));//购物车
+        productList.add(new IconName("约束布局ConstrainLayout"));//购物车
+        productList.add(new IconName("GreenDao测试"));//GreenDao练习
+        productList.add(new IconName("地图测试"));
+        productList.add(new IconName("视频播放器测试"));
+        productList.add(new IconName("ACache练习"));
+        productList.add(new IconName("滚动字幕"));
+        productList.add(new IconName("权限获取练习"));
+        productList.add(new IconName("P2P连接测试"));
+        productList.add(new IconName("支付宝支付练习"));
+        productList.add(new IconName("xposed框架运行时截取练习"));
 
     }
+
 
     @Override
     public void inintData() {
