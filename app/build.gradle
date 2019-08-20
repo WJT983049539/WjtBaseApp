@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+
+logger.trace('A trace log message.')
+logger.debug('A debug log message.')
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -85,5 +88,7 @@ dependencies {
     implementation 'com.xiaosu:VerticalRollingTextView:1.2.0'
     //权限获取依赖
     implementation 'com.qw:soulpermission:1.1.8'
+    implementation 'com.liang.jtab:jtablayout:2.1.1'
     compileOnly fileTree(dir: 'mylib', include: ['*.jar'])
+    implementation 'com.android.support:design:26.0.0-alpha1'
 }

@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
+
         android:name="xposedmodule"
         android:value="true"/>
         <meta-data
@@ -74,6 +75,11 @@
         <activity android:name=".A_V.activity.PermissionTestActivity"/>
         <activity android:name=".A_V.activity.XposedTestActivity"/>
         <activity android:name=".A_V.activity.AirpayTestActivity"/>
+        <activity android:name=".A_V.activity.FragmentManageActivity"/>
+        <activity android:name=".A_V.activity.TabLayoutTestActivity"/>
+        <activity android:name=".A_V.activity.RiliActivity"/>
+        <activity android:name=".A_V.activity.BottomSheetActivity"/>
+        <activity android:name=".A_V.activity.BottomSheetTestActivity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>

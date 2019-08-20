@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.privatee.wjtbaseapp.BaseAppaction;
 
 /**
- * 全局吐司，不会频繁显示
+ * 全局Toast，不会频繁显示
  * @auther wjt
  * @date 2019/5/25
  */

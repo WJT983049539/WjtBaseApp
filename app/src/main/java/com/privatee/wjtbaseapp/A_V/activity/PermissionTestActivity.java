@@ -209,10 +209,6 @@ public class PermissionTestActivity extends BaseActivity {
                                         }else{
                                             getPremission2();
                                         }
-
-
-
-
                                     }
                                 }).create().show();
                     }

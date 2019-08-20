@@ -18,6 +18,7 @@ import com.privatee.mylibrary.Base.BaseConfig;
 import com.privatee.mylibrary.utils.AppBlockCanaryContext;
 import com.privatee.mylibrary.utils.CommonData;
 import com.privatee.mylibrary.utils.TdialogUtils;
+import com.privatee.wjtbaseapp.A_tools.CrashHandler;
 import com.privatee.wjtbaseapp.A_tools.GlobalToast;
 import com.qw.soul.permission.SoulPermission;
 
@@ -33,8 +34,10 @@ public class BaseAppaction extends Application implements Application.ActivityLi
     @Override
     public void onCreate() {
         super.onCreate();
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(this);//全局收集异常类，并且log储存在本地
         context = getApplicationContext();
-        GlobalToast.init(this);
+        GlobalToast.init(this);//全局Toast初始化
         SoulPermission.init(this);//权限框架初始化
         CommonData.applicationContext = this;
         this.registerActivityLifecycleCallbacks(this);//注册
@@ -44,7 +47,6 @@ public class BaseAppaction extends Application implements Application.ActivityLi
         CommonData.ScreenWidth = metric.widthPixels; // 屏幕宽度（像素）
         Intent dialogservice = new Intent(this, CommonDialogService.class);
         startService(dialogservice);
-
         BaseConfig baseConfig=new BaseConfig();
         baseConfig.setIsTitle(false);
         BaseAndroid.init(baseConfig);

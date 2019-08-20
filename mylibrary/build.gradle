@@ -26,12 +26,13 @@ dependencies {
     api 'org.xutils:xutils:3.5.0'
     //先使用这个下载完了在换别的
     api 'com.google.code.gson:gson:2.8.0'
+//    api 'com.google.code.gson:gson:2.7'
     testImplementation 'junit:junit:4.12'
     api 'com.github.paolorotolo:appintro:3.4.0'
     api 'com.lzy.net:okgo:3.0.4'
     api 'com.lzy.net:okrx2:2.0.2'
     api 'com.lzy.net:okserver:2.0.5'
-    api 'com.elvishew:xlog:1.3.0'
+    api 'com.elvishew:xlog:1.3.0'//超级好用的log日志框架
     //一个开源gif控件
     api 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
     //下载器

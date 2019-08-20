@@ -12,10 +12,7 @@ import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.DiskLruTools.ACache;
 import com.privatee.mylibrary.utils.CustomProgressDialog;
 import com.privatee.mylibrary.utils.TaoTools;
-import com.privatee.mylibrary.utils.TdialogUtils;
-import com.privatee.mylibrary.utils.ToastManager;
 import com.privatee.wjtbaseapp.A_V.customview.AmountView;
-import com.privatee.wjtbaseapp.A_tools.GlobalToast;
 import com.privatee.wjtbaseapp.Bean.TwoListBean;
 import com.privatee.wjtbaseapp.R;
 

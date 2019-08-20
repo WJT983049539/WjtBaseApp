@@ -37,6 +37,7 @@ public class WeiXinLoginActivity extends BaseActivity {
     public void onClick(View v) {
         //点击微信登录
         if(v.getId()==R.id.weixinlogin_button){
+            //要成为微信开发者,成为微信开发者
 
         }
     }
