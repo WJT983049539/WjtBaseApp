@@ -201,7 +201,7 @@ public class PuBuLActivity extends BaseActivity{
                     openActivity(BottomSheetTestActivity.class);
                 }
                 else if(productList.get(postion).getIconName().equals("日历测试")) {//todo 没做
-                    openActivity(RiliActivity.class);
+//                    openActivity(RiliActivity.class);
                 }
                 else if(productList.get(postion).getIconName().equals("构建者模式练习")) {//todo 没做
                     openActivity(BuilderModelExerciseActivity.class);
@@ -261,6 +261,7 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("BottomSheet测试"));
         productList.add(new IconName("日历测试"));
         productList.add(new IconName("BottomSheetFragment测试"));
+        productList.add(new IconName("构建者模式练习"));
     }
 
 
