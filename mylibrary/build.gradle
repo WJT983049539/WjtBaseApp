@@ -16,7 +16,7 @@ android {
             }
         }
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
 
@@ -45,9 +45,9 @@ dependencies {
     api 'com.github.markzhai:blockcanary-android:1.5.0'
     api files('src/libs/ant-1.9.0.jar')
     api files('src/libs/tbs_sdk_thirdapp_v3.5.0.1004_43500_sharewithdownload_withoutGame_obfs_20170801_113025.jar')
-    api 'com.android.support:recyclerview-v7:26.0.0-alpha1'
-    api 'com.android.support:appcompat-v7:27.0.0'
-    api 'com.android.support:support-v4:26.0.0-alpha1'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
     api 'com.github.liuguangqiang.swipeback:library:1.0.2@aar'
 
 

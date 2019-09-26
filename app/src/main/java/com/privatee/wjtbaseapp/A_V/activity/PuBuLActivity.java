@@ -2,8 +2,8 @@ package com.privatee.wjtbaseapp.A_V.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.Base.BaseConfig;
@@ -11,7 +11,6 @@ import com.privatee.mylibrary.Widge.AppIntroActivity;
 import com.privatee.wjtbaseapp.A_M.A_adapter.MasonryAdapter;
 import com.privatee.wjtbaseapp.A_M.A_bean.IconName;
 import com.privatee.wjtbaseapp.A_helper.SpacesItemDecoration;
-import com.privatee.wjtbaseapp.A_tools.GlobalToast;
 import com.privatee.wjtbaseapp.Activity.BARRActivity;
 import com.privatee.wjtbaseapp.Activity.CustomViewTestActivity;
 import com.privatee.wjtbaseapp.Activity.EvenBusTestActivity;

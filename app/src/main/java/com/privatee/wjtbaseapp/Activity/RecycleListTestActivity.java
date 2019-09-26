@@ -1,31 +1,21 @@
 package com.privatee.wjtbaseapp.Activity;
 
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.GsonBuilder;
 import com.privatee.mylibrary.Base.BaseActivity;
-import com.privatee.wjtbaseapp.A_M.A_bean.Book;
-import com.privatee.wjtbaseapp.A_M.A_impl.RetrofitService;
 import com.privatee.wjtbaseapp.Bean.RecyclerViewPartUpdateBean;
-import com.privatee.wjtbaseapp.Bean.TestBean;
 import com.privatee.wjtbaseapp.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 类的作用：RecyclerView的各种写法，练习，比如拖拽，自定义item,局部更新，定时跟新
