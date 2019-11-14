@@ -12,13 +12,16 @@
         android:layout_height="wrap_content"
         android:text="reset"/>
 
-    <com.privatee.wjtbaseapp.CustomView.MyView
-        android:id="@+id/myview"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+<!--    <com.privatee.wjtbaseapp.CustomView.MyView-->
+<!--        android:id="@+id/myview"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_width="match_parent"/>-->
         <!--wjtcustom:my_name="王江涛"-->
         <!--wjtcustom:my_age="24"-->
         <!--wjtcustom:my_bg="@drawable/nio"-->
+    <com.privatee.wjtbaseapp.CustomView.BasisView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

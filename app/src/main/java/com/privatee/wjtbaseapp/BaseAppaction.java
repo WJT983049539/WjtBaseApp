@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
@@ -45,8 +46,14 @@ public class BaseAppaction extends Application implements Application.ActivityLi
         WindowManager mWindowManager  = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         mWindowManager.getDefaultDisplay().getMetrics(metric);
         CommonData.ScreenWidth = metric.widthPixels; // 屏幕宽度（像素）
-        Intent dialogservice = new Intent(this, CommonDialogService.class);
-        startService(dialogservice);
+//        Intent dialogservice = new Intent(this, CommonDialogService.class);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            startForegroundService(dialogservice);
+//        } else {
+//            startService(dialogservice);
+//        }
+
+
         BaseConfig baseConfig=new BaseConfig();
         baseConfig.setIsTitle(false);
         BaseAndroid.init(baseConfig);

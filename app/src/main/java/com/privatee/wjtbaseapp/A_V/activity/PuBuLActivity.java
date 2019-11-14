@@ -168,6 +168,7 @@ public class PuBuLActivity extends BaseActivity{
                 }else if(productList.get(postion).getIconName().equals("地图测试")){//没做
                     //创建service
                 }else if(productList.get(postion).getIconName().equals("视频播放器测试")){//没做
+                    openActivity(IJKPlayerActivity.class);
                     //创建service
                 }else if(productList.get(postion).getIconName().equals("ACache练习")){
                     openActivity(AcacheTestActicity.class);
@@ -204,6 +205,17 @@ public class PuBuLActivity extends BaseActivity{
                 }
                 else if(productList.get(postion).getIconName().equals("构建者模式练习")) {//todo 没做
                     openActivity(BuilderModelExerciseActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("闹钟例子")) {//todo 没做
+                    openActivity(AlarmClockTestActivity.class);
+                }else if(productList.get(postion).getIconName().equals("获取短信和联系人信息")) {//todo 没做
+//                    openActivity(GetContactAndSMSInfoActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("自定义view练习")) {//todo 没做
+                    openActivity(CustomViewTestActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("获取网络视频的略缩图")) {//todo 没做
+                    openActivity(GetIntentVideoImageTestActivity.class);
                 }
             }
         });
@@ -261,6 +273,10 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("日历测试"));
         productList.add(new IconName("BottomSheetFragment测试"));
         productList.add(new IconName("构建者模式练习"));
+        productList.add(new IconName("闹钟例子"));
+        productList.add(new IconName("获取短信和联系人信息"));
+        productList.add(new IconName("获取网络视频的略缩图"));
+
     }
 
 

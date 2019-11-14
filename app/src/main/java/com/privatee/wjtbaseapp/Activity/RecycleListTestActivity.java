@@ -105,7 +105,7 @@ import java.util.List;
     private class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyHolder> {
         private RecycleListTestActivity recycleListTestActivity;
         private  List<RecyclerViewPartUpdateBean> mDatass;
-        public MyRecyclerAdapter(RecycleListTestActivity recycleListTestActivity, List<RecyclerViewPartUpdateBean> mDatas) {
+        public  MyRecyclerAdapter(RecycleListTestActivity recycleListTestActivity, List<RecyclerViewPartUpdateBean> mDatas) {
             mDatass=mDatas;
             this.recycleListTestActivity=recycleListTestActivity;
 

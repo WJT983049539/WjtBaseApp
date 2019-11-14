@@ -6,7 +6,13 @@ import android.widget.TextView;
 
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.DiskLruTools.ACache;
+import com.privatee.mylibrary.utils.TaoTools;
+import com.privatee.wjtbaseapp.Bean.MyTestBean;
+import com.privatee.wjtbaseapp.Bean.TestBean;
 import com.privatee.wjtbaseapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @auther wjt
@@ -41,6 +47,16 @@ public class AcacheTestActicity extends BaseActivity {
     }
     @Override
     public void inintData() {
+        ArrayList<MyTestBean> list=new ArrayList<MyTestBean>();
+        MyTestBean myTestBean=new MyTestBean();
+        myTestBean.setName("1");
+        myTestBean.setAge(2);
+        MyTestBean myTestBean2=new MyTestBean();
+        myTestBean2.setName("1");
+        myTestBean2.setAge(2);
+        list.add(myTestBean);
+        list.add(myTestBean2);
+        aCache.put("list",list);
     }
 
     @Override
@@ -50,7 +66,9 @@ public class AcacheTestActicity extends BaseActivity {
                  aCache.put("test","测试这个可以保存序列化bean");
                  break;
              case R.id.bt_showtext:
-                 value=aCache.getAsString("test");
+//                 value=aCache.getAsString("test");
+                 ArrayList<MyTestBean> arrayList= (ArrayList<MyTestBean>) aCache.getAsObject("list");
+                 TaoTools.d(arrayList.size()+"");
                  tv_show.setText(value);
                  break;
              case R.id.tv_show:

@@ -37,6 +37,7 @@
             />
         <activity android:name=".Activity.WebViewActivity"
             android:hardwareAccelerated="true"/>
+        <activity android:name=".A_V.activity.IJKPlayerActivity"/>
         <activity android:name=".Activity.Retrofit_RxJavaActivity"/>
         <activity android:name=".ButterKnifeActivity"/>
         <activity android:name=".Activity.RecycleListTestActivity"/>
@@ -48,6 +49,8 @@
             android:theme="@style/Theme.Swipe.Back"
             />
         <activity android:name=".A_V.activity.GreenDaoTestActivity"/>
+        <activity android:name=".A_V.activity.AlarmClockActivity"/>
+        <activity android:name=".A_V.activity.AlarmClockTestActivity"/>
         <service android:name=".CommonDialogService"/>
         <activity android:name="com.privatee.wjtbaseapp.A_V.activity.RxjavaActivity"/>
 
@@ -77,9 +80,10 @@
         <activity android:name=".A_V.activity.AirpayTestActivity"/>
         <activity android:name=".A_V.activity.FragmentManageActivity"/>
         <activity android:name=".A_V.activity.TabLayoutTestActivity"/>
-        <activity android:name=".A_V.activity.RiliActivity"/>
+<!--        <activity android:name=".A_V.activity.RiliActivity"/>-->
         <activity android:name=".A_V.activity.BottomSheetActivity"/>
         <activity android:name=".A_V.activity.BottomSheetTestActivity"/>
+        <activity android:name=".A_V.activity.GetIntentVideoImageTestActivity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>

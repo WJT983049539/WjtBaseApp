@@ -24,14 +24,15 @@ public class CustomViewTestActivity extends BaseActivity {
 
     @Override
     public void inintView() {
-        final MyView myView = fvbi(R.id.myview);
-        myView.startAnim();
-        findViewById(R.id.reset).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myView.reset();
-            }
-        });
+//        final MyView myView = fvbi(R.id.myview);
+//        myView.startAnim();
+//        findViewById(R.id.reset).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                myView.reset();
+//            }
+//        });
+
 }
 
     @Override
