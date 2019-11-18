@@ -217,6 +217,10 @@ public class PuBuLActivity extends BaseActivity{
                 else if(productList.get(postion).getIconName().equals("获取网络视频的略缩图")) {//todo 没做
                     openActivity(GetIntentVideoImageTestActivity.class);
                 }
+                else if(productList.get(postion).getIconName().equals("DiaLogActivity")) {//todo 没做
+                    openActivity(DialogActivity.class);
+                }
+
             }
         });
 
@@ -276,6 +280,7 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("闹钟例子"));
         productList.add(new IconName("获取短信和联系人信息"));
         productList.add(new IconName("获取网络视频的略缩图"));
+        productList.add(new IconName("DiaLogActivity"));
 
     }
 
