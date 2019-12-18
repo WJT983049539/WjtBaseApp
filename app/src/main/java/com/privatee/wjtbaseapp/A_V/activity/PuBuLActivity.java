@@ -10,6 +10,7 @@ import com.privatee.mylibrary.Base.BaseConfig;
 import com.privatee.mylibrary.Widge.AppIntroActivity;
 import com.privatee.wjtbaseapp.A_M.A_adapter.MasonryAdapter;
 import com.privatee.wjtbaseapp.A_M.A_bean.IconName;
+import com.privatee.wjtbaseapp.A_V.animation.AnimationActivcity;
 import com.privatee.wjtbaseapp.A_helper.SpacesItemDecoration;
 import com.privatee.wjtbaseapp.Activity.BARRActivity;
 import com.privatee.wjtbaseapp.Activity.CustomViewTestActivity;
@@ -220,6 +221,9 @@ public class PuBuLActivity extends BaseActivity{
                 else if(productList.get(postion).getIconName().equals("DiaLogActivity")) {//todo 没做
                     openActivity(DialogActivity.class);
                 }
+                else if(productList.get(postion).getIconName().equals("动画练习")) {
+                    openActivity(AnimationActivcity.class);
+                }
 
             }
         });
@@ -281,6 +285,7 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("获取短信和联系人信息"));
         productList.add(new IconName("获取网络视频的略缩图"));
         productList.add(new IconName("DiaLogActivity"));
+        productList.add(new IconName("动画练习"));
 
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 动画测试
+ # alpha:渐变透明度动画效果
+ # scale:渐变尺寸伸缩动画效果
+ # translate:动画变换位置移动动画效果
+ # rotate: 画面变换位置移动动画效果
+ # set 定义动画集
+ #privotX,在原点基础上增加，开始的点上增加
+ #privotY,在原点基础上增加，开始的原点的基础上增加，
+ #fillAfter 是否保持动画结束时的状态
+
+-->
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXScale="0.0"
+    android:toXScale="1.4"
+    android:fromYScale="0.0"
+    android:toYScale="1.4"
+    android:pivotX="50%"
+    android:pivotY="50%p"
+    android:duration="700"
+    android:fillAfter="true"
+    android:fillbefore="true"
+    />

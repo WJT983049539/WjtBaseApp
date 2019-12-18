@@ -19,7 +19,7 @@
         <!--wjtcustom:my_name="王江涛"-->
         <!--wjtcustom:my_age="24"-->
         <!--wjtcustom:my_bg="@drawable/nio"-->
-    <com.privatee.wjtbaseapp.CustomView.BasisView
+    <com.privatee.wjtbaseapp.A_V.customview.CustomView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

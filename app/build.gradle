@@ -116,5 +116,4 @@ dependencies {
 
     //获取视频的略缩图
     implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
-    implementation files('libs/UnitendDRMDemo_release.jar')
 }

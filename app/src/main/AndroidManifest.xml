@@ -87,6 +87,7 @@
         <activity android:name=".A_V.activity.DialogActivity"
             android:theme="@style/dialog_style"
             ></activity>
+        <activity android:name=".A_V.animation.AnimationActivcity"/>
     </application>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>
