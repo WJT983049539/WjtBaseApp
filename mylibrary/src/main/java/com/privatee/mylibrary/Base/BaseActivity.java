@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -29,7 +31,7 @@ import static com.privatee.mylibrary.R.id.lay_bg;
  * Created by WJT on  2017/10/27 18:05.
  */
 
-public abstract class BaseActivity extends Activity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FragmentBackListener backListener;
     private boolean isInterception = false;
