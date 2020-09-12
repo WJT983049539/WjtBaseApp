@@ -1,6 +1,7 @@
 package com.privatee.mylibrary.Base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.os.SystemClock;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -53,6 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             //屏幕常亮
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+
         setNowActivityName();
         setContentView(setLayout());
         inintView();

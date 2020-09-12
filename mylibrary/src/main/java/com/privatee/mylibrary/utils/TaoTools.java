@@ -73,8 +73,6 @@ public class TaoTools {
       Log.d("SeeLog",msg);
         //   XLog.d(msg);
     }
-
-
     /**
      * 获取星座
      *
@@ -84,7 +82,6 @@ public class TaoTools {
     public static String getZodiac(final long millis) {
         return getZodiac(millis2Date(millis));
     }
-
     /**
      * 获取星座
      * <p>time格式为yyyy-MM-dd HH:mm:ss</p>

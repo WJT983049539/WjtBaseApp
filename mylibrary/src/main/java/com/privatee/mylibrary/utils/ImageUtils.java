@@ -3,13 +3,22 @@ package com.privatee.mylibrary.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Environment;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.WeakHashMap;
 
 /**
@@ -37,6 +46,64 @@ public class ImageUtils {
         mDrawables = new WeakHashMap<Integer, WeakReference<Drawable>>();
     }
 
+    /**
+     * 根据私有路径加载
+     * @param context 上下文
+     * @param path 这个路径一定是私有路径，即应用自己的目录下（data/包名）
+     * @return Drawable 用来设置背景什么的
+     * */
+    public static Drawable getByPrivatePath(Context context,String path){
+        Bitmap bitmap = BitmapFactory.decodeFile(path);
+        Drawable drawable = new BitmapDrawable(context.getResources(), bitmap);
+        return drawable;
+    }
+
+
+    /**
+     * 把bitmap写入app私有目录下
+     * @param context 上下文
+     * @param bitmap 这个bitmap不能为null
+     * @return File
+     * 适配到4.4
+     * */
+    private static File compressImage(Context context, Bitmap bitmap) {
+        String filename;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+            Date date = new Date(System.currentTimeMillis());
+            //图片名
+            filename = format.format(date);
+        }else {
+            Date date=new Date();
+            filename=date.getYear()+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes()+date.getSeconds()+"";
+        }
+
+        final File[] dirs = context.getExternalFilesDirs("Documents");
+        File primaryDir = null;
+        if (dirs != null && dirs.length > 0) {
+            primaryDir = dirs[0];
+        }
+        File file = new File(primaryDir.getAbsolutePath(), filename + ".png");
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            try {
+                fos.write(baos.toByteArray());
+                fos.flush();
+                fos.close();
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+
+            e.printStackTrace();
+        }
+
+        // recycleBitmap(bitmap);
+        return file;
+    }
 
 
     /**
@@ -66,7 +133,23 @@ public class ImageUtils {
 //    }
 
 
-
+    /**
+     * 保存文件
+     * @param bm
+     * @throws IOException
+     */
+    public static String saveFile(Bitmap bm) throws IOException {
+        String path= Environment.getExternalStorageDirectory()+"/temp/"+Math.abs(Math.random())+".jpg";
+        File myCaptureFile = new File(path);
+        if(!myCaptureFile.exists()){
+            myCaptureFile.createNewFile();
+        }
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
+        bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
+        bos.flush();
+        bos.close();
+        return path;
+    }
 
 
 
