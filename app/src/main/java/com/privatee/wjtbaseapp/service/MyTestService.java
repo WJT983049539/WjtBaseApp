@@ -6,10 +6,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.Nullable;
 
-import com.privatee.mylibrary.utils.Logger;
 import com.privatee.mylibrary.utils.TaoTools;
 import com.privatee.wjtbaseapp.Activity.MainActivity;
 import com.privatee.wjtbaseapp.R;

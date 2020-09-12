@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <!-- 这个是保存拍照图片的路径,必须配置。 -->
+        <external-files-path
+            name="images"
+            path="Pictures" />
+        <external-files-path name="opensdk_external" path="Images/tmp"/>
+        <root-path name="opensdk_root" path=""/>
+
+    </paths>
+    <paths>
+        <external-path path="images" name="camera_photos" /> <!--访问外部储存下images下的文件-->
+        <external-path path="" name="camera_photos" /> <!--访问外部储存下images下的所有文件 /storage/emulated/0/images-->
+        <external-path path="" name="camera_photos" /> <!--访问外部储存根目录下下的所有文件 -->
+        <external-path path="" name="download" />
+    </paths>
+</resources>

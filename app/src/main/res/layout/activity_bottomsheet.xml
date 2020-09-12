@@ -1,4 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coor"
@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <!--   app:behavior_peekHeight="50dp" 初始高度-->
-    <android.support.v4.widget.NestedScrollView android:id="@+id/bootom_sheet"
+    <androidx.core.widget.NestedScrollView android:id="@+id/bootom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:behavior_hideable="true"
@@ -51,6 +51,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

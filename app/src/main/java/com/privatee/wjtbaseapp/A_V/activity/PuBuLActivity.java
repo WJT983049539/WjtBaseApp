@@ -2,9 +2,11 @@ package com.privatee.wjtbaseapp.A_V.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.Base.BaseConfig;
 import com.privatee.mylibrary.Widge.AppIntroActivity;
@@ -31,6 +33,8 @@ import com.privatee.wjtbaseapp.Activity.WeiXinLoginActivity;
 import com.privatee.wjtbaseapp.Activity.WjtTestActivity;
 import com.privatee.wjtbaseapp.ButterKnifeActivity;
 import com.privatee.wjtbaseapp.R;
+import com.privatee.wjtbaseapp.material_design.Material_DesignActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +46,7 @@ import java.util.List;
  * 修改历史:
  */
 public class PuBuLActivity extends BaseActivity{
-    private RecyclerView  recyclerView;
+    private RecyclerView recyclerView;
     private List<IconName> productList=new ArrayList<IconName>();
 
     @Override
@@ -206,6 +210,22 @@ public class PuBuLActivity extends BaseActivity{
                 else if(productList.get(postion).getIconName().equals("构建者模式练习")) {//todo 没做
                     openActivity(BuilderModelExerciseActivity.class);
                 }
+                else if(productList.get(postion).getIconName().equals("构建者模式练习")) {//todo 没做
+                    openActivity(BuilderModelExerciseActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("Material_design")) {// Material_design 风格
+                    openActivity(Material_DesignActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("安卓相机调用适配")) {// Material_design 风格
+                    openActivity(PhotoActivity.class);
+                }
+                else if(productList.get(postion).getIconName().equals("JetpackNavigation使用")) {
+//                    openActivity(JetpackNavigationActivity.class);
+                    //todo 稍后开发
+                }
+                else if(productList.get(postion).getIconName().equals("MMKV储存使用")) {// Material_design 风格
+                    openActivity(MMKVTest_Activity.class);
+                }
             }
         });
 
@@ -262,6 +282,10 @@ public class PuBuLActivity extends BaseActivity{
         productList.add(new IconName("日历测试"));
         productList.add(new IconName("BottomSheetFragment测试"));
         productList.add(new IconName("构建者模式练习"));
+        productList.add(new IconName("Material_design"));
+        productList.add(new IconName("安卓相机调用适配"));
+        productList.add(new IconName("JetpackNavigation使用"));
+        productList.add(new IconName("MMKV储存使用"));
     }
 
 

@@ -1,14 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="android:Theme.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!-- 主题样式  透明的 -->
-    <style name="AppBaseSherlockTheme" parent="Theme.AppCompat.Light">
+    <style name="AppBaseSherlockTheme" parent="android:Theme.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="actionMenuTextColor">#ffffffff</item>

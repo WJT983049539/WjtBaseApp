@@ -2,36 +2,24 @@ package com.privatee.wjtbaseapp.A_V.activity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.privatee.mylibrary.Base.BaseActivity;
 import com.privatee.mylibrary.utils.FileTools;
-import com.privatee.mylibrary.utils.TaoTools;
 import com.privatee.wjtbaseapp.A_tools.ScrollTextSurfaceView;
 import com.privatee.wjtbaseapp.R;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import io.reactivex.functions.Consumer;
-import com.xiaosu.DataSetAdapter;
-import com.xiaosu.VerticalRollingTextView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 
 
 import static com.tencent.smtt.sdk.TbsReaderView.TAG;

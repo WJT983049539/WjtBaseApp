@@ -1,12 +1,12 @@
 package com.privatee.wjtbaseapp.A_V.activity;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
 import android.view.View;
-import android.support.design.widget.TabLayout;
 
-import com.privatee.mylibrary.Base.BaseActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.privatee.mylibrary.Base.CompatibilityBaseActivity;
 import com.privatee.mylibrary.utils.TaoTools;
 import com.privatee.wjtbaseapp.A_V.fragment.TestFragment;
