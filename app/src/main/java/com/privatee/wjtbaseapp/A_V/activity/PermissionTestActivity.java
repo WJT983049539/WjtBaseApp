@@ -67,21 +67,20 @@ public class PermissionTestActivity extends BaseActivity {
                //请求多个权限
             case R.id.button_multiple:
 
-//                SoulPermission.getInstance().checkAndRequestPermissions(
-    //                        Permissions.build(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
-//                        //if you want do noting or no need all the callbacks you may use SimplePermissionsAdapter instead
-//                        new CheckRequestPermissionsListener() {
-//                            @Override
-//                            public void onAllPermissionOk(Permission[] allPermissions) {
-//                                Toast.makeText(PermissionTestActivity.this, allPermissions.length + "权限获取成功", Toast.LENGTH_SHORT).show();
-//                            }
-//
-//                            @Override
-//                            public void onPermissionDenied(Permission[] refusedPermissions) {
-//                                Toast.makeText(PermissionTestActivity.this, refusedPermissions[0].toString() +
-//                                        " 权限获取失败", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
+                SoulPermission.getInstance().checkAndRequestPermissions(
+                            Permissions.build(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        //if you want do noting or no need all the callbacks you may use SimplePermissionsAdapter instead
+                        new CheckRequestPermissionsListener() {
+                            @Override
+                            public void onAllPermissionOk(Permission[] allPermissions) {
+                                Toast.makeText(PermissionTestActivity.this, allPermissions.length + "权限获取成功", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onPermissionDenied(Permission[] refusedPermissions) {
+                                Toast.makeText(PermissionTestActivity.this, refusedPermissions[0].toString() +
+                                        " 权限获取失败", Toast.LENGTH_SHORT).show();
+                            }                       });
                 getPremission2();
                 break;
             case R.id.button7:

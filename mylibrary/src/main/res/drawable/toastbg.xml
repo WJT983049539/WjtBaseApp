@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <!-- 填充的颜色 -->
-    <solid android:color="#3c000000"
+    <solid android:color="#3C272222"
         />
     <!-- android:radius 弧形的半径 -->
     <corners android:radius="20dip" />
